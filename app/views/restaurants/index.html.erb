@@ -1,7 +1,11 @@
 <h1>SeatYourself</h1>
 
 <% @restaurants.each do |restaurant| %>
-	<ul><%= restaurant.name %></ul>
+	<ul><%= link_to restaurant.name, restaurant_path(restaurant[:id]) %></ul>
 <% end %>
 
 <%= link_to "Add a new restaurant", new_restaurant_path %>
+
+<%= link_to "Sign up", new_user_path %>
+
+<%= link_to "Log in", new_session_path %>
