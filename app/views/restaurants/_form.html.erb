@@ -1,5 +1,6 @@
 <%= form_for(@restaurant) do |f| %>
 	<% if @restaurant.errors.any? %>
+		<div class="starter-template">
 		<div id="error_explanation">
 			<h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 			<ul>
@@ -10,29 +11,29 @@
 		</div>
 	<% end %>
 
-
 	<div class="field">
 		<%= f.label :name %><br/>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, :placeholder => "Milestones " %>
 	</div>
 
 	<div class="field">
 		<%= f.label :address %><br/>
-		<%= f.text_field :address %>
+		<%= f.text_field :address, :placeholder => "123 Bay St."%>
 	</div>
 
 	<div class="field">
 		<%= f.label :cuisine_type %><br/>
-		<%= f.text_field :cuisine_type %>
+		<%= f.text_field :cuisine_type, :placeholder => "Thai" %>
 	</div>
 
 	<div class="field">
 		<%= f.label :website %><br/>
-		<%= f.text_field :website %>
+		<%= f.text_field :website, :value => "http://" %>
 	</div>
 
 	<div class="actions">
 		<%= f.submit %>
+		</div>
 	</div>
 <% end %>
 

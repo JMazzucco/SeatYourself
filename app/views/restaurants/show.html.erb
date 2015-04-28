@@ -1,68 +1,56 @@
+<br/><br/>
+<div class="starter-template">
 
 
 <h1><%= @restaurant.name %></h1>
 <p><%= @restaurant.address %></p>
 <p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
-<p><%= @restaurant.cuisine_type %></p>
+<p>Cuisine: <%= @restaurant.cuisine_type %></p>
 
-<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
-<%= link_to "Delete", restaurant_path(@restaurant.id), method: :delete %>
+<button type="button" class="btn btn-default"><%= link_to "Edit", edit_restaurant_path(@restaurant.id) %></button>
+<button type="button" class="btn btn-default"><%= link_to "Delete", restaurant_path(@restaurant.id), method: :delete %></button>
 
 
+<h3>Your Reservations</h3>
 
-<h2>Your Reservation</h2>
-
-	<p>Reservations for <%= @restaurant.name %></p>
-
-	<% @restaurant.reservations.each do |reservation| %>
-		<p>
-
-			</p><br/>
-			<%= reservation.party_size %><br/>
-
-			<% if reservation.user != nil %>
-			<em> by <%= reservation.user.email %></em>
-			Added on: <%= reservation.created_at %>
-			<% end %>
-		</p>
+	<p>Your reservations for <%= @restaurant.name %></p>
+	<% if current_user %>
+	<% @restaurant.reservations.where(user_id: current_user).each do |res| %>
+				<p>
+					Today, at <%= res.time %> for <%= pluralize(res.party_size, "person") %>
+				</p>
+				<%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), method: :delete  %>
+				<% if res.user != nil %>
+				<em>Added on: <%= res.created_at %></em>
+				<% end %>
+			</p>
+			<hr/>
+		<% end %>
 	<% end %>
-
 
 <% if current_user %>
-	<h4>Book a reservation</h4>
 
-	<%= form_for([@restaurant, @reservation]) do |f| %>
-		<% if @reservation.errors.any? %>
-			<div id="error explanation">
-				<h2><%= pluralize(@reservation.errors.count, "error") %> prohibited your reservation from being saved:</h2>
+	<% if @hours_open.empty? %>
+		<h3>Sorry, this restaurant is booked for today!</h3>
+	<% else %>
 
-				<ul>
-				<% @reservation.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-				</ul>
+<h3>Make a new reservation for today!</h3>
+	  <%= form_for([@restaurant, @reservation]) do |f| %>
+			<div class="field">
+				<%= f.label :time %><br/>
+				<%= f.select :time, @hours_open %>
 			</div>
-		<% end %>
-
-
-		<div class="field">
-			<%= f.label :time %><br/>
-			<%= f.select :time, @available_times %>
-		</div>
-		<div class="field">
-			<%= f.label :party_size %><br/>
-			<%= f.text_field :party_size %>
-		</div>
-		<div class="field">
-			<%= f.submit %><br/>
-		</div>
+			<div class="field">
+				<%= f.label :party_size %><br/>
+				<%= f.text_field :party_size %>
+			</div>
+			<div class="field">
+				<%= f.submit %><br/>
+			</div>
 	<% end %>
-
+<% end %>
 <% else %>
 	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
+
 <% end %>
-
-<br/>
-<%= link_to "Back ", restaurants_path %>
-
-
+</div>

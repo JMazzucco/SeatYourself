@@ -1,9 +1,37 @@
-<h1>SeatYourself</h1>
 
-<% @restaurants.each do |restaurant| %>
-	<ul><%= link_to restaurant.name, restaurant_path(restaurant[:id]) %></ul>
-<% end %>
+ <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to SeatYourself!</h1>
+        <p>Tumblr tilde quinoa, Shoreditch disrupt flannel tofu. Carles Intelligentsia kogi trust fund biodiesel gentrify. High Life wolf gentrify, Austin roof party Etsy tote bag selfies post-ironic pour-over lumbersexual stumptown master cleanse trust fund.</p>
+        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a> -->
+        <%= link_to "Add a new restaurant »", new_restaurant_path %>
 
-<%= link_to "Add a new restaurant", new_restaurant_path %>
+      </div>
+    </div>
 
+    <div class="container">
+      <!-- Example row of columns -->
+
+      <div class="row">
+
+					<% @restaurants.each do |restaurant| %>
+					<div class="col-md-4">
+	          <h2><%= restaurant.name %></h2>
+	          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+	          <p><%= link_to "View Details »", restaurant_path(restaurant[:id]) %></p>
+          </div>
+          <% end %>
+
+        <!-- <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        </div>
+      </div> -->
 

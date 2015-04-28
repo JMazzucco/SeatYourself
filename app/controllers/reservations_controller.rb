@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
   before_filter :load_restaurant
-  before_filter :ensure_logged_in, only: [:create, :destroy]
 
   def show
   	@reservation = Reservation.find(params[:id])
@@ -10,16 +9,29 @@ class ReservationsController < ApplicationController
   	@reservation = @restaurant.reservations.build(reservation_params)
   	@reservation.user = current_user
 
-  	if @reservation.save
-  		redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
-  	else
-  		render 'restaurant/show'
-  	end
+    requested_time = (params[:reservation][:time]).to_i
+    @seats_booked = @restaurant.reservations.where(time: requested_time).sum("party_size")
+
+    requested_party = (params[:reservation][:party_size]).to_i
+
+        if (@seats_booked + requested_party) > 100
+          seats_available = (100 - @seats_booked)
+          #alert does not display at next HTTP response
+          flash[:alert] = "Limited seats available. Please choose a party size of #{seats_available} or smaller"
+          redirect_to restaurant_path(@restaurant)
+        else
+          if @reservation.save
+        		redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
+        	else
+        		redirect_to restaurant_path(@restaurant)
+        	end
+        end
   end
 
   def destroy
   	@reservation = Reservation.find(params[:id])
   	@reservation.destroy
+    redirect_to restaurant_path(@restaurant)
   end
 
 private

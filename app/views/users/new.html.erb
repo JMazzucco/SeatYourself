@@ -1,7 +1,21 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<br/>
+<br/>
+<h1>Create a new account</h1>
 
-<%= form_for(@user) do |f| %>
+
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
 	<div class="field" %>
 		<%= f.label :name %><br/>
 		<%= f.text_field :name %>
@@ -20,4 +34,5 @@
 	</div>
 	<div class="actions"><%= f.submit %> </div>
 <% end %>
+
 
