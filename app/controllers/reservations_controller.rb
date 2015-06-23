@@ -14,18 +14,18 @@ class ReservationsController < ApplicationController
 
     requested_party = (params[:reservation][:party_size]).to_i
 
-        if (@seats_booked + requested_party) > 100
-          seats_available = (100 - @seats_booked)
-          #alert does not display at next HTTP response
-          flash[:alert] = "Limited seats available. Please choose a party size of #{seats_available} or smaller"
-          redirect_to restaurant_path(@restaurant)
-        else
-          if @reservation.save
-        		redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
-        	else
-        		redirect_to restaurant_path(@restaurant)
-        	end
-        end
+    if (@seats_booked + requested_party) > 100
+      seats_available = (100 - @seats_booked)
+      #alert does not display at next HTTP response
+      flash[:alert] = "Limited seats available. Please choose a party size of #{seats_available} or smaller"
+      redirect_to restaurant_path(@restaurant)
+    else
+      if @reservation.save
+    		redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
+    	else
+    		redirect_to restaurant_path(@restaurant)
+    	end
+    end
   end
 
   def destroy
