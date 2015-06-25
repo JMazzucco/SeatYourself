@@ -17,7 +17,7 @@
 	<% if current_user %>
 	<% @restaurant.reservations.where(user_id: current_user).each do |res| %>
 				<p>
-					Today, at <%= res.time %> for <%= pluralize(res.party_size, "person") %>
+				<%= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%= pluralize(res.party_size, "person") %>
 				</p>
 				<%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), method: :delete  %>
 				<% if res.user != nil %>
@@ -38,7 +38,13 @@
 	  <%= form_for([@restaurant, @reservation]) do |f| %>
 			<div class="field">
 				<%= f.label :time %><br/>
-				<%= f.select :time, @hours_open %>
+
+				<%= f.datetime_select :time,
+			 		:default => 24.hours.from_now,
+          :minute_step => 30,
+			    :discard_year => true
+			    %>
+
 			</div>
 			<div class="field">
 				<%= f.label :party_size %><br/>

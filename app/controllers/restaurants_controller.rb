@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
   def index
     @restaurants = Restaurant.all
   end
@@ -18,6 +19,8 @@ class RestaurantsController < ApplicationController
     if current_user
         @reservation = @restaurant.reservations.build
     end
+
+
   end
 
   def new
