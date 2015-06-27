@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
+      flash[:success] = "Welcome to SeatYourself!"
   		redirect_to restaurants_url, notice: "Signed up!"
   	else
+      flash[:success] = "flash[:alert]"
   		render "new"
   	end
   end

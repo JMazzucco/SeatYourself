@@ -18,6 +18,10 @@
   <% if flash[:alert] %>
     <p><%= flash[:alert] %></p>
   <% end %>
+    <% if flash[:success] %>
+    <p><%= flash[:success] %></p>
+  <% end %>
+
 <% else %>
   <button type="button"><%= link_to "Log in", new_session_path %></button>
   <button type="button"><%= link_to "Sign up", new_user_path %></button>
