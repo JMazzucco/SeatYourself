@@ -15,7 +15,6 @@
 		</div>
 	<% end %>
 
-
 	<div class="field" %>
 		<%= f.label :name %><br/>
 		<%= f.text_field :name %>
@@ -31,6 +30,10 @@
 	<div class="field" %>
 		<%= f.label :password_confirmation  %><br/>
 		<%= f.password_field :password_confirmation %>
+	</div>
+	<div class="field" %>
+		<%= f.label :time_zone  %><br/>
+		<%= f.collection_select :time_zone, zones = ActiveSupport::TimeZone.all.find_all { |z| z.name =~ /Canada|Newfoundland/ }, :name, :to_s %>
 	</div>
 	<div class="actions"><%= f.submit %> </div>
 <% end %>

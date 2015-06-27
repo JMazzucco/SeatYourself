@@ -12,12 +12,12 @@ class ReservationsController < ApplicationController
     DateTime.new()
 
     date_params = []
-    4.times do |i|
+    5.times do |i|
       i += 1
       date_params.push(params[:reservation]["time(" + i.to_s + "i)"].to_i)
     end
 
-    submitted_datetime = DateTime.new(date_params[0], date_params[1], date_params[2], date_params[3])
+    submitted_datetime = DateTime.new(date_params[0], date_params[1], date_params[2], date_params[3], date_params[4])
 
     if (submitted_datetime > DateTime.now) && (submitted_datetime < 31.days.from_now)
       @seats_booked = @restaurant.reservations.where(time: submitted_datetime).sum("party_size")
