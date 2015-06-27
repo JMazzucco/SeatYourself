@@ -19,17 +19,14 @@ class ReservationsController < ApplicationController
 
     submitted_datetime = DateTime.new(date_params[0], date_params[1], date_params[2], date_params[3])
 
-    #check if reservation date submitted by the user falls within the next 7 days
     if (submitted_datetime > DateTime.now) && (submitted_datetime < 31.days.from_now)
-      # requested_time = (params[:reservation][:time]).to_i
       @seats_booked = @restaurant.reservations.where(time: submitted_datetime).sum("party_size")
 
       submitted_party_size = (params[:reservation][:party_size]).to_i
 
       if (@seats_booked + submitted_party_size) > 100
         seats_available = (100 - @seats_booked)
-        #alert does not display at next HTTP response
-        flash[:alert] = "Limited seats available. Please choose a party size of #{seats_available} or smaller"
+        flash[:alert] = "#{seats_available} seats are available for this time"
         redirect_to restaurant_path(@restaurant)
       else
         if @reservation.save
