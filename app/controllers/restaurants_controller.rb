@@ -53,7 +53,8 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    unless current_userflash[:alert] = "Please log in"
+    unless current_user
+      flash[:alert] = "Please log in"
       redirect_to new_session_path
     end
       @restaurant = Restaurant.find(params[:id])
@@ -63,6 +64,6 @@ class RestaurantsController < ApplicationController
 
 private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :cuisine_type, :website)
+    params.require(:restaurant).permit(:image, :name, :address, :cuisine_type, :website)
   end
 end

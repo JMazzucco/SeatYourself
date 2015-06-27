@@ -12,6 +12,11 @@
 	<% end %>
 
 	<div class="field">
+		<%= f.label :image %><br/>
+		<%= f.text_field :image, :value => "http://" %>
+	</div>
+
+	<div class="field">
 		<%= f.label :name %><br/>
 		<%= f.text_field :name, :placeholder => "Milestones " %>
 	</div>

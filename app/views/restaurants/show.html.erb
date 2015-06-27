@@ -1,6 +1,6 @@
 
 
-
+<div><img src="<%= @restaurant.image %>"/></div>
 <h1><%= @restaurant.name %></h1>
 <p><%= @restaurant.address %></p>
 <p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
@@ -18,12 +18,7 @@
 				<p>
 					<%= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%= pluralize(res.party_size, "person") %>
 				</p>
-
 				<%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), :method => :delete %>
-
-				<% if res.user != nil %>
-				<em>Added on: <%= res.created_at %></em>
-				<% end %>
 			</p>
 			<hr/>
 		<% end %>
