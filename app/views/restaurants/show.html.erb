@@ -1,5 +1,4 @@
-<br/><br/>
-<div class="starter-template">
+
 
 
 <h1><%= @restaurant.name %></h1>
@@ -7,8 +6,8 @@
 <p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
 <p>Cuisine: <%= @restaurant.cuisine_type %></p>
 
-<button type="button" class="btn btn-default"><%= link_to "Edit", edit_restaurant_path(@restaurant.id) %></button>
-<button type="button" class="btn btn-default"><%= link_to "Delete", restaurant_path(@restaurant.id), method: :delete %></button>
+<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
+<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
 
 
 <h3>Your Reservations</h3>
@@ -17,9 +16,11 @@
 	<% if current_user %>
 	<% @restaurant.reservations.where(user_id: current_user).each do |res| %>
 				<p>
-				<%= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%= pluralize(res.party_size, "person") %>
+					<%= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%= pluralize(res.party_size, "person") %>
 				</p>
-				<%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), method: :delete  %>
+
+				<%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), :method => :delete %>
+
 				<% if res.user != nil %>
 				<em>Added on: <%= res.created_at %></em>
 				<% end %>
@@ -29,15 +30,14 @@
 	<% end %>
 
 <% if current_user %>
-
 	<% if @hours_open.empty? %>
 		<h3>Sorry, this restaurant is booked for today!</h3>
 	<% else %>
 
 <h3>Make a new reservation for today!</h3>
 	  <%= form_for([@restaurant, @reservation]) do |f| %>
-			<div class="field">
-				<%= f.label :time %><br/>
+
+				<%= f.label :time %>
 
 				<%= f.datetime_select :time,
 			 		:default => 24.hours.from_now,
@@ -45,18 +45,14 @@
 			    :discard_year => true
 			    %>
 
-			</div>
-			<div class="field">
-				<%= f.label :party_size %><br/>
+				<%= f.label :party_size %>
 				<%= f.text_field :party_size %>
-			</div>
-			<div class="field">
-				<%= f.submit %><br/>
-			</div>
+
+				<%= f.submit %>
+
 	<% end %>
 <% end %>
 <% else %>
 	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
 
 <% end %>
-</div>

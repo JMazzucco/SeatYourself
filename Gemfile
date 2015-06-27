@@ -25,9 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'better_errors'
-gem 'quiet_assets'
-gem 'pry-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -36,7 +34,10 @@ gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'better_errors'
+	gem 'pry-rails'
   gem 'byebug'
+	gem 'quiet_assets'
   gem 'factory_girl_rails'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

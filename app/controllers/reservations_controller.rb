@@ -19,29 +19,29 @@ class ReservationsController < ApplicationController
 
     submitted_datetime = DateTime.new(date_params[0], date_params[1], date_params[2], date_params[3])
 
-    if (submitted_datetime > DateTime.now) && (submitted_datetime < 7.days.from_now)
-      puts "aya"
+    #check if reservation date submitted by the user falls within the next 7 days
+    if (submitted_datetime > DateTime.now) && (submitted_datetime < 31.days.from_now)
+      # requested_time = (params[:reservation][:time]).to_i
+      @seats_booked = @restaurant.reservations.where(time: submitted_datetime).sum("party_size")
+
+      submitted_party_size = (params[:reservation][:party_size]).to_i
+
+      if (@seats_booked + submitted_party_size) > 100
+        seats_available = (100 - @seats_booked)
+        #alert does not display at next HTTP response
+        flash[:alert] = "Limited seats available. Please choose a party size of #{seats_available} or smaller"
+        redirect_to restaurant_path(@restaurant)
+      else
+        if @reservation.save
+          redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
+        else
+          redirect_to restaurant_path(@restaurant)
+        end
+      end
     else
-      puts "boo"
+       flash[:alert] = "Please choose a date and time between today and 10 days from now"
+      redirect_to restaurant_path(@restaurant)
     end
-    # requested_time = (params[:reservation][:time]).to_i
-    # @seats_booked = @restaurant.reservations.where(time: requested_time).sum("party_size")
-
-    # requested_party = (params[:reservation][:party_size]).to_i
-
-
-    # if (@seats_booked + requested_party) > 100
-    #   seats_available = (100 - @seats_booked)
-    #   #alert does not display at next HTTP response
-    #   flash[:alert] = "Limited seats available. Please choose a party size of #{seats_available} or smaller"
-    #   redirect_to restaurant_path(@restaurant)
-    # else
-    #   if @reservation.save
-    # 		redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
-    # 	else
-    # 		redirect_to restaurant_path(@restaurant)
-    # 	end
-    # end
   end
 
   def destroy

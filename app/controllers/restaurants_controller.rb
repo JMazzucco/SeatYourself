@@ -19,17 +19,6 @@ class RestaurantsController < ApplicationController
     if current_user
         @reservation = @restaurant.reservations.build
     end
-
-    start = Time.now.to_i
-    cutoff = 10.days.from_now.to_i
-    range = (start...cutoff)
-
-    available_datetimes = []
-    range.each do |i|
-     date = Time.at(i)
-     available_datetimes.push(date)
-    end
-     @available_datetimes
   end
 
   def new
