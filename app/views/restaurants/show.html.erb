@@ -1,23 +1,21 @@
-
-
 <div><img src="<%= @restaurant.image %>"/></div>
 <h1><%= @restaurant.name %></h1>
 <p><%= @restaurant.address %></p>
 <p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
 <p>Cuisine: <%= @restaurant.cuisine_type %></p>
 
-<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
-<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
-
+<% if current_user && current_user.id == @restaurant.owner %>
+	<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
+	<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
+<% end %>
 
 <h3>Your Reservations</h3>
-
 	<p>Your reservations for <%= @restaurant.name %></p>
 	<% if current_user %>
 	<% @restaurant.reservations.where(user_id: current_user).each do |res| %>
-				<p>
-					<%= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%= pluralize(res.party_size, "person") %>
-				</p>
+			<p>
+				<%= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%= pluralize(res.party_size, "person") %>
+			</p>
 				<%= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), :method => :delete %>
 			</p>
 			<hr/>
@@ -31,23 +29,17 @@
 
 <h3>Make a new reservation for today!</h3>
 	  <%= form_for([@restaurant, @reservation]) do |f| %>
-
 				<%= f.label :time %>
-
 				<%= f.datetime_select :time,
 			 		:default => 24.hours.from_now,
           :minute_step => 15,
 			    :discard_year => true
 			    %>
-
 				<%= f.label :party_size %>
 				<%= f.text_field :party_size %>
-
 				<%= f.submit %>
-
+		<% end %>
 	<% end %>
-<% end %>
 <% else %>
 	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
-
 <% end %>

@@ -27,6 +27,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+
     if @restaurant.save
       redirect_to restaurants_url
     else
@@ -64,6 +65,6 @@ class RestaurantsController < ApplicationController
 
 private
   def restaurant_params
-    params.require(:restaurant).permit(:image, :name, :address, :cuisine_type, :website)
+    params.require(:restaurant).permit(:image, :name, :address, :cuisine_type, :website, :owner)
   end
 end

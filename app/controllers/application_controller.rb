@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
   around_filter :user_time_zone, if: :current_user
 
   def ensure_logged_in
@@ -9,6 +8,8 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+
 
   private
   def current_user

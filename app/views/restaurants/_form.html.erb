@@ -11,6 +11,8 @@
 		</div>
 	<% end %>
 
+	<%= f.hidden_field :owner, :value => current_user.id %>
+
 	<div class="field">
 		<%= f.label :image %><br/>
 		<%= f.text_field :image, :value => "http://" %>
