@@ -15,7 +15,7 @@
 
 	<div class="field">
 		<%= f.label :image %><br/>
-		<%= f.text_field :image, :value => "http://" %>
+		<%= f.url_field :image, :value => "http://" %>
 	</div>
 
 	<div class="field">
@@ -29,13 +29,14 @@
 	</div>
 
 	<div class="field">
-		<%= f.label :cuisine_type %><br/>
-		<%= f.text_field :cuisine_type, :placeholder => "Thai" %>
+    <%= f.label "Cuisine" %> <br />
+    <%= f.select :cuisine_type, [['Thai'],['Italian'],['Seafood'],['Indian']]  %> <br />
+	</div>
 	</div>
 
 	<div class="field">
 		<%= f.label :website %><br/>
-		<%= f.text_field :website, :value => "http://" %>
+		<%= f.url_field :website, :value => "http://" %>
 	</div>
 
 	<div class="actions">
