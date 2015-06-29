@@ -8,26 +8,20 @@
 </head>
 <body>
 
-<%= link_to "SeatYourself", restaurants_path %>
-<% if current_user %>
-  Signed in as <%= current_user.name %>
-  <button type="button"> <%= link_to "Log out", session_path("current"), method: :delete %></button>
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
-  <% if flash[:alert] %>
-    <p><%= flash[:alert] %></p>
-  <% end %>
-    <% if flash[:success] %>
-    <p><%= flash[:success] %></p>
-  <% end %>
-
-<% else %>
-  <button type="button"><%= link_to "Log in", new_session_path %></button>
-  <button type="button"><%= link_to "Sign up", new_user_path %></button>
-<% end %>
-
-<%= yield %>
+  <div id="nav">
+    <% if current_user %>
+      <%#= link_to "Edit Profile", edit_user_path(current_user.id) %>
+      <%= link_to "Logout", :logout, method: :post %>
+    <% else %>
+      <%= link_to "Register", new_user_path %> |
+      <%= link_to "Login", :login %>
+    <% end %>
+  </div>
+  <div>
+    <p id="notice"><%= flash[:notice] %></p>
+    <p id="alert"><%= flash[:alert] %></p>
+  </div>
+  <%= yield %>
 
 </body>
 </html>

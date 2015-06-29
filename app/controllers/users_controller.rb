@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  skip_before_filter :require_login, only: [:new, :create]
+
+  def index ; render text: 'ohai'; end
+
   def new
   		@user = User.new
   end
@@ -6,8 +10,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-      flash[:success] = "Welcome to SeatYourself!"
-  		redirect_to restaurants_url, notice: "Signed up!"
+      auto_login(@user)
+      redirect_to(restaurants_url, notice: 'User was successfully created')
   	else
       flash[:success] = "flash[:alert]"
   		render "new"

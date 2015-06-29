@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
-	validates :name, :email, :password, :password_confirmation, presence: true
-	has_secure_password
+  authenticates_with_sorcery!
 
+  validate :name
+  validates :email, uniqueness: true
+	validates :password, length: { minimum: 3 }
+	validates :password, confirmation: true
+  validates :password_confirmation, presence: true
 	validates :time_zone,
   inclusion: {
     in: ActiveSupport::TimeZone.zones_map(&:name).keys
@@ -9,4 +13,6 @@ class User < ActiveRecord::Base
 
 	has_many :reservations
 	has_many :restaurants, through: :reservations
+
+	# has_secure_password
 end
