@@ -1,10 +1,6 @@
 class ReviewsController < ApplicationController
   before_filter :load_restaurant
 
-  def index
-  	@reviews= Review.all
-  end
-
   def new
   	@review = Review.new
   end
@@ -21,11 +17,15 @@ class ReviewsController < ApplicationController
   	end
   end
 
+  def show
+  	# @review = Review.find(params[:id])
+
+  	@reviews = Review.where("restaurant_id = ?", params[:restaurant_id])
+  end
+
 private
 	def review_params
 		 params.require(:review).permit(:comment, :rating)
-		# review[:restaurant_id] = params[:restaurant_id]
-		# review
 	end
 
 	def load_restaurant

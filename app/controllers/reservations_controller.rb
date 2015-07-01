@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_filter :load_restaurant
 
   def show
-  	@reservation = Reservation.find(params[:id])
+  	@reservation = Reservation.find("id = ?", params[:id])
   end
 
   def create

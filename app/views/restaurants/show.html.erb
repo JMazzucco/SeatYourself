@@ -4,6 +4,15 @@
 <p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
 <p>Cuisine: <%= @restaurant.cuisine_type %></p>
 
+<% @restaurant.reviews.each do |r| %>
+		<p>
+			<%= r.rating %>
+		</p>
+			<%= r.comment %>
+		</p>
+		<hr/>
+<% end %>
+
 <% if current_user && current_user.id == @restaurant.owner %>
 	<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
 	<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
@@ -23,7 +32,6 @@
 	<% end %>
 
 <% if current_user %>
-
 	<%= link_to "leave a review!", new_restaurant_review_path(@restaurant) %>
 	<% if @hours_open.empty? %>
 		<h3>Sorry, this restaurant is booked for today!</h3>
@@ -45,5 +53,3 @@
 <% else %>
 	<p>Please <%= link_to "log in", new_session_path %> to add a review.</p>
 <% end %>
-
-
