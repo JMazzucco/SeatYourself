@@ -4,19 +4,34 @@
 <p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
 <p>Cuisine: <%= @restaurant.cuisine_type %></p>
 
-<% @restaurant.reviews.each do |r| %>
-		<p>
-			<%= r.rating %>
-		</p>
-			<%= r.comment %>
-		</p>
-		<hr/>
+<% if @restaurant.reviews.count > 0 %>
+	<% @restaurant.reviews.each do |r| %>
+			<p>
+				<%= r.rating %>
+			</p>
+				<%= r.comment %>
+			</p>
+			<hr/>
+	<% end %>
+
 <% end %>
 
 <% if current_user && current_user.id == @restaurant.owner %>
 	<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
 	<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
 <% end %>
+
+	<h2>Nearby restaurants</h2>
+<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
+	<ul>
+	<% @nearby_restaurants.each do |nr| %>
+		<li><%= "#{nr.name}, #{nr.distance} km"%></li>
+	<% end %>
+	</ul>
+<% else %>
+	<p>No nearby restaurants found</p>
+<% end %>
+
 
 <h3>Your Reservations</h3>
 	<p>Your reservations for <%= @restaurant.name %></p>

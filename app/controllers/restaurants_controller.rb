@@ -7,6 +7,10 @@ class RestaurantsController < ApplicationController
   def show
     #the record of the current restaurant
     @restaurant = Restaurant.find(params[:id])
+    @reservation = @restaurant.reservations.build
+    @nearby_restaurants = @restaurant.nearbys(1, units: :km)
+
+    binding.pry
 
     #An array of hours open
     @hours_open = (11..23).to_a
@@ -14,10 +18,6 @@ class RestaurantsController < ApplicationController
     #iterate through each hour and only keep it if the sum of the party size of the selected hour is under 100
     @hours_open.keep_if do |timeslot|
       @restaurant.reservations.where(time: timeslot).sum("party_size") < 100 || @restaurant.reservations.where(time: timeslot).sum("party_size") == nil
-    end
-
-    if current_user
-        @reservation = @restaurant.reservations.build
     end
   end
 
