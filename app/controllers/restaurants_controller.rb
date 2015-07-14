@@ -1,7 +1,19 @@
 class RestaurantsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
+
   def index
-    @restaurants = Restaurant.all
+    if params[:search]
+      @restaurants = Restaurant.near(params[:search], 1, units: :km)
+    elsif params[:longitude] && params[:latitude]
+      @restaurants = Restaurant.near([params[:latitude], [:longitude]], 1, units: :km)
+    else
+      @restaurants = Restaurant.all
+    end
+
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def show
@@ -9,8 +21,6 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @reservation = @restaurant.reservations.build
     @nearby_restaurants = @restaurant.nearbys(1, units: :km)
-
-    binding.pry
 
     #An array of hours open
     @hours_open = (11..23).to_a
