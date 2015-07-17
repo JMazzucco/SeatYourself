@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
     #the record of the current restaurant
     @restaurant = Restaurant.find(params[:id])
     @reservation = @restaurant.reservations.build
-    @nearby_restaurants = @restaurant.nearbys(1, units: :km)
+    @nearby_restaurants = @restaurant.nearbys(10, units: :km)
 
     #An array of hours open
     @hours_open = (11..23).to_a

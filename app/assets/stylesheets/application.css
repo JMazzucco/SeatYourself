@@ -17,3 +17,8 @@
 .location-error {
 	display:none;
 }
+
+#map-canvas {
+	height: 500px;
+	width: 700px;
+}
