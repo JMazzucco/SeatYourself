@@ -1,6 +1,9 @@
- $(document).on('ready page:load', function(){
-	 $( '.menu-btn' ).click(function(){
-	 	$('.responsive-menu').toggleClass('expand')
-	 });
- });
+$(document).ready(function(){
+  $('#login-trigger').click(function(){
+    $(this).next('#login-content').slideToggle();
+    $(this).toggleClass('active');
 
+    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+      else $(this).find('span').html('&#x25BC;')
+    })
+});
