@@ -1,13 +1,24 @@
 <%= form_tag user_sessions_path, :method => :post do %>
-  <div class="field">
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email %>
-  </div>
-  <div class="field">
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Login" %>
-  </div>
+  <form>
+    <fieldset id="inputs">
+          <%= email_field_tag 'email', nil, id: 'username', placeholder: 'Your email address' %>
+          <%= password_field_tag 'password', nil, placeholder: 'Password' %>
+    </fieldset>
+    <fieldset id="actions">
+          <%= submit_tag "submit", value: "Log in" %>
+          <label><%= check_box_tag :remember, params[:remember], true %> Keep me signed in</label>
+        </div>
+    </fieldset>
+  </form>
 <% end %>
+<%#= check_box_tag :remember, params[:remember], true %>
+<!-- <form>
+  <fieldset id="inputs">
+    <input id="username" type="email" name="Email" placeholder="Your email address" required>
+    <input id="password" type="password" name="Password" placeholder="Password" required>
+  </fieldset>
+  <fieldset id="actions">
+    <input type="submit" id="submit" value="Log in">
+    <label><input type="checkbox" checked="checked"> Keep me signed in</label>
+  </fieldset>
+</form> -->
