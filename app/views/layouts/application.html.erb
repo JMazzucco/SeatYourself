@@ -7,30 +7,30 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Figaro.env.google_maps_api}" %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
 
 <nav>
-  <ul>
-    <% if current_user %>
-      <li id="logout">
-        <%= link_to "Logout", :logout, method: :post %>
-      </li>
-    <% else %>
-      <li id="login">
-        <a id="login-trigger" href="#">
-          Log in <span>▼</span>
-        </a>
-        <div id="login-content">
-           <%= render :partial => '/user_sessions/form'%>
-        </div>
-      </li>
-      <li id="signup">
-        <%= link_to "Sign up", new_user_path %>
-      </li>
-      <%end%>
-  </ul>
+    <h1>SeatYourself</h1>
+    <ul>
+      <% if current_user %>
+        <li id="logout">
+          <%= link_to "Logout", :logout, method: :post %>
+        </li>
+      <% else %>
+        <li id="login">
+          <a id="login-trigger" href="#">
+            Log in <span>▼</span>
+          </a>
+          <div id="login-content">
+             <%= render :partial => '/user_sessions/form'%>
+          </div>
+        </li>
+        <li id="signup">
+          <%= link_to "Sign up", new_user_path %>
+        </li>
+        <%end%>
+    </ul>
 </nav>
 
   <div>
