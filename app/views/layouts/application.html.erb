@@ -11,7 +11,7 @@
 <body>
 
 <nav>
-    <h1>SeatYourself</h1>
+    <span id='title'>SeatYourself</span>
     <ul>
       <% if current_user %>
         <li id="logout">
@@ -37,7 +37,9 @@
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
   </div>
-  <%= yield %>
+  <div id="content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

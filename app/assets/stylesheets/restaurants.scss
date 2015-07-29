@@ -10,3 +10,12 @@ body {
 	color: $primary-color;
 }
 
+#background-img {
+	z-index: -100;
+	position: absolute;
+	margin: -100px auto;
+}
+
+#restaurants {
+	margin-top: 300px;
+}

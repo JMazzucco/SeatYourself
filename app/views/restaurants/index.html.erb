@@ -1,4 +1,6 @@
-<%= link_to "Add a new restaurant »", new_restaurant_path %>
+<div>
+  <%= image_tag("restaurant-mobile.jpg", id: "background-img", alt: "restaurant background image") %>
+</div>
 
 <section>
   <button id="current-location">Find restaurants near me</button>
@@ -11,10 +13,12 @@
   <%= search_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
 <% end %>
-  <%= render @restaurants %>
 </section>
 
 <section id="restaurants">
+<div>
+  <%= link_to "Add a new restaurant »", new_restaurant_path %>
+</div>
 <div class="container">
   <div class="row">
 			<%= render @restaurants %>
