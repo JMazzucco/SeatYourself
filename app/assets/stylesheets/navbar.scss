@@ -76,14 +76,14 @@ nav {
 	#login-content {
 	  display: none;
 	  position: absolute;
-	  top: 35px;
+	  top: 30px;
 	  right: 0;
 	  z-index: 999;
 	  background: #fff;
 	  background-image: linear-gradient(top, #fff, #eee);
 	  padding: 5%;
 	  box-shadow: 0 2px 4px -1px rgba(0,0,0,.9);
-	  border-radius: 3px 0 0 3px;
+	  border-radius: 0 0 5px 5px;
 	}
 
 	#inputs {
