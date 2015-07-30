@@ -11,16 +11,62 @@ body {
 }
 
 #img-container {
-  overflow: hidden;
-  min-height: 200px;
-  max-height: 300px;
-  z-index: -100;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      display: block;
+      background-image: url("restaurant-mobile.jpg");
+      min-height: 200px;
+      max-height: 300px;
 
+      background-position: -2px -120px;
+      background-repeat: no-repeat;
+
+      -webkit-filter: blur(2.5px);
+      -moz-filter: blur(2.5px);
+      -o-filter: blur(2.5px);
+      -ms-filter: blur(2.5px);
+      filter: blur(2.5px);
+    }
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  margin: auto;
+  text-align: center;
+}
+
+#or-icon {
+  color: #FFF;
+  background-color: rgba(0,0,0,0.7);
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  line-height: 28px;
+  margin: auto;
+  font-style: italic;
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+
+#current-location {
+  zoom: 70%;
+  color: #FFF;
+  background-color: #D83C3C;
+  font:bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border-radius: 5px;
+  margin-top: 23px;
+   &:hover{
+        background: #e54040;
+    }
 }
 
 #background-img {
   position: absolute;
-	z-index: -100;
   margin:  0 0 -5px -3px;
   min-width: 400px;
   width: 102vw;
@@ -34,8 +80,6 @@ body {
 #search-container {
 	width: 100%;
 	margin: auto;
-	// background-color: rgba(204, 204, 204, 0.85);
-	padding: 30px 10px;
 	border-radius: 5px;
 
 	div, h4 {
@@ -72,18 +116,18 @@ cf:before, .cf:after{
 
     .form-wrapper {
       zoom: 70%;
-        z-index: 100;
-        width: 450px;
-        padding: 15px;
-        margin: 60px auto 50px auto;
-        background: #444;
-        background: rgba(0,0,0,.3);
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
-        box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+      z-index: 100;
+      width: 450px;
+      // padding: 15px;
+      margin: 54px auto 27px auto;
+      background: #444;
+      // background: rgba(0,0,0,.3);
+      // -moz-border-radius: 10px;
+      // -webkit-border-radius: 10px;
+      // border-radius: 10px;
+      // -moz-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+      // -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+      // box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
     }
 
     .form-wrapper input {

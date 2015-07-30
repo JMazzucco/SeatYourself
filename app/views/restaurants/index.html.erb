@@ -1,24 +1,26 @@
 <div id="img-container">
-  <%= image_tag("restaurant-mobile.jpg", id: "background-img", alt: "restaurant background image") %>
+  <%#= image_tag("restaurant-mobile.jpg", id: "background-img", alt: "restaurant background image") %>
 
    <form class="form-wrapper cf">
-        <input type="text" placeholder="Find Restaurants by Address" required>
+        <input type="text" placeholder="Find Restaurants Near Address" required>
         <button type="submit">Search</button>
   </form>
+  <div id="or-icon">
+    <p>or</p>
+   </div>
+    <button id="current-location">Find Restaurants Near Me</button>
+    <p class="error location-error">Unable to find your location</p>
+
+
 </div>
 
 
 
 <div id='search-container'>
 
-  <div>
-    <button id="current-location ">Find restaurants near me</button>
-    <p class="error location-error">Unable to find your location</p>
 
 
-  </div>
 
-  <h4><em>or</em> </h4>
 
   <div>
 
