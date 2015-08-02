@@ -11,6 +11,11 @@ body {
   background-color: #EEE;
 }
 
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
+
 #content-test {
   background-image: url("white_carbon/white_carbon.png");
 }
@@ -24,8 +29,8 @@ body {
       z-index: -1;
       display: block;
       background-image: url("restaurant-mobile.jpg");
-      height: 200px;
-      background-position: -2px -120px;
+      height: 300px;
+      background-position: 0px -73px;
       background-repeat: no-repeat;
       -webkit-filter: blur(2.5px);
       -moz-filter: blur(2.5px);
@@ -34,7 +39,7 @@ body {
       filter: blur(2.5px);
     }
   overflow: hidden;
-
+  height: 250px;
   z-index: 0;
   margin: auto;
   margin-bottom: 24px;
@@ -59,9 +64,10 @@ body {
   zoom: 70%;
   color: #FFF;
   background-color: #D83C3C;
-  font:bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  font:bold 20px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
   border-radius: 5px;
   margin-top: 23px;
+  padding: 3px 20px;
 
   &:hover{
     background: #e54040;
@@ -71,8 +77,8 @@ body {
 #results-header {
   background-color: #FFF;
   height: 50px;
-  border-bottom: 1px solid #505;
-  border-top: 1px solid #505;
+  border-bottom: 1px solid #9A9;
+  // border-top: 1px solid #505;
 
   h2 {
     padding-top: 20px;
@@ -102,18 +108,16 @@ body {
 }
 
 
-#results-header {
 
+#results-header {
   h2 {
     margin:0;
   }
-
-
 }
 //individual restaurants
 
 .restaurant {
-    border: 1px solid #505;
+  border: 1px solid #9A9;
   background-color: #FFF;
   padding: 3px;
   margin: 10px;
@@ -177,7 +181,7 @@ cf:before, .cf:after{
       zoom: 70%;
       z-index: 100;
       width: 450px;
-      margin: 70px auto 27px auto;
+      margin: 120px auto 27px auto;
       background: #444;
     }
 
@@ -186,7 +190,7 @@ cf:before, .cf:after{
         height: 20px;
         padding: 10px 5px;
         float: left;
-        font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        font: bold 20px 'lucida sans', 'trebuchet MS', 'Tahoma';
         border: 0;
         background: #eee;
         -moz-border-radius: 3px 0 0 3px;

@@ -3,9 +3,12 @@
 		<%= link_to image_tag("http://placehold.it/100x100"), restaurant_path(restaurant[:id]) %>
 	</div>
 	<div id="restaurant-deets">
-		<h2 id='name'><%= link_to truncate(restaurant.name, length: 20), restaurant_path(restaurant[:id]) %></h2>
-		<p><%= restaurant.cuisine_type %></p>
-		<p><%= truncate(restaurant.address, length: 25) %></p>
+		<h2 id='name'><%= link_to truncate(restaurant.name.titleize, length: 20), restaurant_path(restaurant[:id]) %></h2>
+		<div class="rating">
+<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
+		<p><%= restaurant.cuisine_type.titleize %></p>
+		<p><%= truncate(restaurant.address.titleize, length: 25) %></p>
 		<% if restaurant.reviews.count > 0 %>
 	    <% sum = restaurant.reviews.sum(:rating) %>
 	    <% count = restaurant.reviews.count %>
