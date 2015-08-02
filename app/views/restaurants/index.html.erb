@@ -7,21 +7,17 @@
   </form>
   <div id="or-icon">
     <p>or</p>
-   </div>
+  </div>
     <button id="current-location">Find Restaurants Near Me</button>
     <p class="error location-error">Unable to find your location</p>
 </div>
 
-
-<section id="restaurants">
-
-<div class="container">
-  <div class="row">
-			<%= render @restaurants %>
-      </div>
+<div id="content-test">
+  <div id="results-header">
+    <h2>ALL RESTAURANTS</h2>
   </div>
-
+			<%= render @restaurants %>
   <div>
-  <%= link_to "Add a new restaurant »", new_restaurant_path %>
+   <%= link_to "Add a new restaurant »", new_restaurant_path %>
+  </div>
 </div>
-</section>

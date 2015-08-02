@@ -1,10 +1,19 @@
-<h2><%= restaurant.name %></h2>
-	          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-	          <p><%= link_to "View Details »", restaurant_path(restaurant[:id]) %></p>
-            <% if restaurant.reviews.count > 0 %>
-              <% sum = restaurant.reviews.sum(:rating) %>
-              <% count = restaurant.reviews.count %>
-              <p>Rating: <%= (sum / count.to_f).ceil %> out of 5</p>
-            <% else %>
-              <p>Be the first to leave a review!</p>
-            <% end %>
+<div class='restaurant'>
+	<div id="thumb">
+		<%= link_to image_tag("http://placehold.it/100x100"), restaurant_path(restaurant[:id]) %>
+	</div>
+	<div id="restaurant-deets">
+		<h2 id='name'><%= link_to truncate(restaurant.name, length: 20), restaurant_path(restaurant[:id]) %></h2>
+		<p><%= restaurant.cuisine_type %></p>
+		<p><%= truncate(restaurant.address, length: 25) %></p>
+		<% if restaurant.reviews.count > 0 %>
+	    <% sum = restaurant.reviews.sum(:rating) %>
+	    <% count = restaurant.reviews.count %>
+	    <p class='rating'>Rating: <%= (sum / count.to_f).ceil %> out of 5</p>
+	  <% else %>
+	    <p class='rating'>Be the first to leave a review!</p>
+	  <% end %>
+
+	  <p><%#= link_to "View Details »", restaurant_path(restaurant[:id]) %></p>
+  </div>
+</div>

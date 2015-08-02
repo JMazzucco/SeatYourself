@@ -15,6 +15,11 @@ nav {
 		color: #EEEEEE;
 		line-height: 25px;
 		font: 25px sans-serif;
+
+		a:link, a:hover, a:active, a:visited {
+			text-decoration: none;
+			color: #EEEEEE;
+		}
 	}
 
 
@@ -28,7 +33,7 @@ nav {
 	  float: right;
 	  background: #eee;
 	  border-bottom: 1px solid #fff;
-	  border-radius: 3px 0 0 3px;
+	  border-radius: 0 0 0 3px;
 	}
 
 	li {
