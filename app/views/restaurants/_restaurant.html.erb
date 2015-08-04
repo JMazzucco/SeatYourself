@@ -4,18 +4,33 @@
 	</div>
 	<div id="restaurant-deets">
 		<h2 id='name'><%= link_to truncate(restaurant.name.titleize, length: 20), restaurant_path(restaurant[:id]) %></h2>
+
+
+
 		<div class="rating">
-<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-</div>
-		<p><%= restaurant.cuisine_type.titleize %></p>
-		<p><%= truncate(restaurant.address.titleize, length: 25) %></p>
 		<% if restaurant.reviews.count > 0 %>
 	    <% sum = restaurant.reviews.sum(:rating) %>
 	    <% count = restaurant.reviews.count %>
-	    <p class='rating'>Rating: <%= (sum / count.to_f).ceil %> out of 5</p>
+	    <% user_rating = (sum / count.to_f).ceil %>
+	    <% empty_stars = 5 - user_rating %>
+			<% user_rating.times do |x| %>
+				<span class="filled-star" id="<%= x%>">&starf;</span>
+		  <% end %>
+		  <% empty_stars.times do |x| %>
+				<span class="empty-star" id="<%= x%>">&starf;</span>
+		  <% end %>
+		  <span id="rating_count"><%= pluralize(restaurant.reviews.count, "review") %></span>
 	  <% else %>
-	    <p class='rating'>Be the first to leave a review!</p>
+	     <% 5.times do |x| %>
+				<span class="empty-star" id="<%= x%>">&starf;</span>
+				<% end %>
+				<span id="rating_count">0 reviews</span>
 	  <% end %>
+		</div>
+
+		<p id="cusine_city"><%= restaurant.cuisine_type.titleize.upcase %> &bull; CITY
+		<%#= truncate(restaurant.address.titleize, length: 25) %></p>
+
 
 	  <p><%#= link_to "View Details »", restaurant_path(restaurant[:id]) %></p>
   </div>

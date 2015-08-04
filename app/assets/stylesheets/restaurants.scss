@@ -11,10 +11,30 @@ body {
   background-color: #EEE;
 }
 
-.rating > span:hover:before {
-   content: "\2605";
-   position: absolute;
+// .rating {
+//   unicode-bidi: bidi-override;
+//   direction: rtl;
+// }
+
+.rating > span {
+  position: relative;
+  width: 1.1em;
 }
+
+.filled-star {
+  color: red;
+  font-size: 1.2em;
+}
+
+.empty-star {
+  color: #E4E4E4;
+  font-size: 1.2em;
+}
+
+.filled-star {
+  color: red;
+}
+
 
 #content-test {
   background-image: url("white_carbon/white_carbon.png");
@@ -49,6 +69,7 @@ body {
 #or-icon {
   color: #FFF;
   background-color: rgba(0,0,0,0.7);
+  padding-right: 2px;
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -77,14 +98,22 @@ body {
 #results-header {
   background-color: #FFF;
   height: 50px;
-  border-bottom: 1px solid #9A9;
-  // border-top: 1px solid #505;
+  border-bottom: 1px solid #929492;
+;
 
   h2 {
     padding-top: 20px;
     font-size: 1.2em;
     padding-left: 3px;
+    margin:0;
   }
+}
+
+#rating_count {
+    font-size: 13px!important;
+    line-height: 19px!important;
+  font-family: Arial,sans-serif;
+      color: #0066c0
 }
 
 #search-container {
@@ -108,19 +137,14 @@ body {
 }
 
 
-
-#results-header {
-  h2 {
-    margin:0;
-  }
-}
 //individual restaurants
 
 .restaurant {
-  border: 1px solid #9A9;
+  border: 1px solid #929492;
   background-color: #FFF;
   padding: 3px;
   margin: 10px;
+  border-radius: 5px;
     #thumb{
       display: inline-block;
 
@@ -138,8 +162,17 @@ body {
       display: inline-block;
       vertical-align: top;
       line-height: 150%;
+      padding-top: 13px;
+      padding-left: 3px;
       *{
         margin: 0;
+      }
+
+      #cusine_city {
+        color: #6B6969;
+        font-size: 0.8em;
+        line-height: 2;
+        letter-spacing: 1.2px;
       }
     }
 

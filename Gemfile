@@ -28,8 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 gem 'geocoder'
 gem 'figaro'
-
-
+gem 'letsrate'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

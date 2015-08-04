@@ -81,6 +81,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.2)
     jwt (1.5.1)
+    letsrate (1.0.9)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -190,6 +191,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  letsrate
   pry-rails
   quiet_assets
   rails (= 4.2.1)
