@@ -35,7 +35,7 @@ body {
   color: red;
 }
 
-#content-test {
+#content-bg {
   background-image: url("white_carbon/white_carbon.png");
 }
 
@@ -97,7 +97,10 @@ body {
 #results-header {
   background-color: #FFF;
   height: 26px;
-  border-bottom: 1px solid #929492;
+  border: 1px solid #929492;
+  border-top: none;
+  margin: 0 10px;
+    border-radius: 0 0 5px 5px;
 ;
 
   h2 {
@@ -152,8 +155,6 @@ body {
       }
      img {
       border-radius: 100%;
-
-
      }
     }
 
@@ -315,7 +316,6 @@ cf:before, .cf:after{
   background-color: grey;
   padding: 15px;
 
-
   #full_img {
     border-radius: 5px;
     margin-top: 20px;
@@ -324,11 +324,21 @@ cf:before, .cf:after{
   h1, p, a {
     color: #FFF;
     text-decoration: none;
-
   }
 
- h1 {
-  margin: 0;
- }
+  h1 {
+   margin: 0;
+  }
+}
+
+#reso_booking {
+  text-align: center;
+  border: 1px solid #929492;
+  border-top: none;
+  background-color: #FFF;
+  padding: 25px;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
 }
 

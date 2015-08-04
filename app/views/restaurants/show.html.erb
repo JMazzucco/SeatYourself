@@ -33,6 +33,22 @@
 	<p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
 </div>
 
+<div id="content-bg">
+
+	<div id="reso_booking">
+		  <%= form_for([@restaurant, @reservation]) do |f| %>
+					<%#= f.label :time %>
+					<%= f.datetime_select :time,
+				 		:default => 24.hours.from_now,
+		        :minute_step => 15,
+				    :discard_year => true
+				    %>
+
+					<p><%#= f.label :party_size %>
+					<%= f.text_field :party_size, placeholder: "Number of People" %></p>
+					<%= f.submit %>
+			<% end %>
+	</div>
 
 <% if @restaurant.reviews.count > 0 %>
 	<% @restaurant.reviews.each do |r| %>
@@ -43,7 +59,6 @@
 			</p>
 			<hr/>
 	<% end %>
-
 <% end %>
 
 <% if current_user && current_user.id == @restaurant.owner %>
@@ -80,24 +95,9 @@
 	<%= link_to "leave a review!", new_restaurant_review_path(@restaurant) %>
 	<% if @hours_open.empty? %>
 		<h3>Sorry, this restaurant is booked for today!</h3>
-	<% else %>
-
-<h3>Make a new reservation for today!</h3>
-	  <%= form_for([@restaurant, @reservation]) do |f| %>
-				<%= f.label :time %>
-				<%= f.datetime_select :time,
-			 		:default => 24.hours.from_now,
-	        :minute_step => 15,
-			    :discard_year => true
-			    %>
-				<%= f.label :party_size %>
-				<%= f.text_field :party_size %>
-				<%= f.submit %>
-		<% end %>
-	<% end %>
-<% else %>
-	<p>Please <%= link_to "log in", login_path %> to add a review.</p>
 <% end %>
+<% end %>
+
 
 <% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
 	<%= javascript_tag do %>
@@ -105,4 +105,4 @@
 	<% end %>
 <% end %>
 
-
+</div>
