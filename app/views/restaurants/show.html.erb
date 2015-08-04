@@ -1,8 +1,38 @@
-<div><img src="<%= @restaurant.image %>"/></div>
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
-<p>Cuisine: <%= @restaurant.cuisine_type %></p>
+<div id="show_deets">
+	<div>
+		<%= image_tag "http://placehold.it/125x125
+		", id:"full_img"%>
+	</div>
+	<!-- <img src="<%#= @restaurant.image %>"/> -->
+
+	<h1><%= @restaurant.name %></h1>
+
+	<div class="rating">
+		<% if @restaurant.reviews.count > 0 %>
+	    <% sum = @restaurant.reviews.sum(:rating) %>
+	    <% count = @restaurant.reviews.count %>
+	    <% user_rating = (sum / count.to_f).ceil %>
+	    <% empty_stars = 5 - user_rating %>
+			<% user_rating.times do |x| %>
+				<span class="filled-star" id="<%= x%>">&starf;</span>
+		  <% end %>
+		  <% empty_stars.times do |x| %>
+				<span class="empty-star" id="<%= x%>">&starf;</span>
+		  <% end %>
+	  <% else %>
+	     <% 5.times do |x| %>
+				<span class="empty-star" id="<%= x%>">&starf;</span>
+				<% end %>
+	  <% end %>
+		</div>
+
+	<p id="cusine_city"><%= @restaurant.cuisine_type.titleize.upcase %> &bull; CITY
+		<%#= truncate(restaurant.address.titleize, length: 25) %></p>
+
+	<p><%#= @restaurant.address %></p>
+	<p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
+</div>
+
 
 <% if @restaurant.reviews.count > 0 %>
 	<% @restaurant.reviews.each do |r| %>
@@ -33,8 +63,6 @@
 	<p>No nearby restaurants found</p>
 <% end %>
 
-
-
 <h3>Your Reservations</h3>
 	<p>Your reservations for <%= @restaurant.name %></p>
 	<% if current_user %>
@@ -59,7 +87,7 @@
 				<%= f.label :time %>
 				<%= f.datetime_select :time,
 			 		:default => 24.hours.from_now,
-          :minute_step => 15,
+	        :minute_step => 15,
 			    :discard_year => true
 			    %>
 				<%= f.label :party_size %>

@@ -35,7 +35,6 @@ body {
   color: red;
 }
 
-
 #content-test {
   background-image: url("white_carbon/white_carbon.png");
 }
@@ -97,15 +96,15 @@ body {
 
 #results-header {
   background-color: #FFF;
-  height: 50px;
+  height: 26px;
   border-bottom: 1px solid #929492;
 ;
 
   h2 {
-    padding-top: 20px;
-    font-size: 1.2em;
+    padding-top: 8px;
+    font-size: 14px;
     padding-left: 3px;
-    margin:0;
+    margin: 0;
   }
 }
 
@@ -307,3 +306,29 @@ cf:before, .cf:after{
         border: 0;
         padding: 0;
     }
+
+// Restaurant show
+
+#show_deets {
+  margin-top: 35px;
+  height: 300px;
+  background-color: grey;
+  padding: 15px;
+
+
+  #full_img {
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  h1, p, a {
+    color: #FFF;
+    text-decoration: none;
+
+  }
+
+ h1 {
+  margin: 0;
+ }
+}
+

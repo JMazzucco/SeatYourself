@@ -1,7 +1,7 @@
 <div id="img-container">
    <form class="form-wrapper cf">
       <%= form_tag restaurants_path, method: :get do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Find Restaurants Near Address" %>
+      <%= search_field_tag :search, params[:search], placeholder: "Find Restaurants Near an Address" %>
       <button type="submit">Search</button>
       <% end %>
   </form>
