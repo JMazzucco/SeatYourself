@@ -80,7 +80,7 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
 
-#current-location, #new_review_btn, #reso_submit_btn, #new_rest_submit_btn {
+#current-location, #new_review_btn, #reso_submit_btn, #new_rest_submit_btn, #new_user_submit_btn {
   zoom: 70%;
   color: #FFF;
   background-color: #D83C3C;
@@ -379,7 +379,7 @@ cf:before, .cf:after{
   margin-top: 0;
 }
 
-#new_restaurant_container {
+#new_restaurant_container, #new_user_container {
   margin: 55px 20px;
   background-color: #FFF;
   padding: 20px 0;
@@ -389,7 +389,7 @@ cf:before, .cf:after{
   }
 }
 
-label{
+label {
   width: 4em;
   float: left;
   text-align: right;
@@ -402,7 +402,7 @@ label{
 }
 
 .actions {
-  padding-right: 25px;
+  padding-left: 20px;
 }
 
 #new_restaurant_form {
@@ -410,20 +410,34 @@ label{
  margin-top: 0;
   #new_restaurant_btm_hr {
     clear:both;
-
   }
 }
 
-.new_restaurant {
+.new_restaurant, #new_user_container {
   padding-top: 15px;
 }
 
-#new_rest_submit_btn {
-  display: inline-block;
- float: right
+#new_user_container {
+  padding: 20px;
+
+  label {
+    width: 6em;
+    float: left;
+    text-align: right;
+    margin-right: 0.5em;
+    display: block;
+  }
+
+  select {
+    width: 184px;
+  }
 }
 
-#new_resturant_errors {
+#new_rest_submit_btn, #new_user .actions {
+
+}
+
+#new_restaurant_errors {
   position: relative;
   padding-top: 20px;
   margin: 0 20px;

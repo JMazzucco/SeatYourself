@@ -1,41 +1,40 @@
-<br/>
-<br/>
-<h1>Create a new account</h1>
+<div id="new_user_container">
+	<h1>Sign Up</h1>
+	<hr/>
 
+	<%= form_for @user do |f| %>
+		<% if @user.errors.any? %>
+			<div class="error_messages">
+				<h2>Form is invalid</h2>
+				<ul>
+					<% for message in @user.errors.full_messages %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 
-<%= form_for @user do |f| %>
-	<% if @user.errors.any? %>
-		<div class="error_messages">
-			<h2>Form is invalid</h2>
-			<ul>
-				<% for message in @user.errors.full_messages %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
+		<div class="field" %>
+			<%= f.label :name %>
+			<%= f.text_field :name %>
 		</div>
+		<div class="field" %>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</div>
+		<div class="field" %>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</div>
+		<div class="field" %>
+			<%= f.label :password_confirmation, "Confirmation"  %>
+			<%= f.password_field :password_confirmation %>
+		</div>
+		<div class="field" %>
+			<%= f.label :time_zone, "Time Zone"  %>
+			<%= f.collection_select :time_zone, zones = ActiveSupport::TimeZone.all.find_all { |z| z.name =~ /Canada|Newfoundland/ }, :name, :to_s %>
+		</div>
+		<div class="actions"><%= f.submit "Submit", id:"new_user_submit_btn" %> </div>
 	<% end %>
-
-	<div class="field" %>
-		<%= f.label :name %><br/>
-		<%= f.text_field :name %>
-	</div>
-	<div class="field" %>
-		<%= f.label :email %><br/>
-		<%= f.text_field :email %>
-	</div>
-	<div class="field" %>
-		<%= f.label :password %><br/>
-		<%= f.password_field :password %>
-	</div>
-	<div class="field" %>
-		<%= f.label :password_confirmation  %><br/>
-		<%= f.password_field :password_confirmation %>
-	</div>
-	<div class="field" %>
-		<%= f.label :time_zone  %><br/>
-		<%= f.collection_select :time_zone, zones = ActiveSupport::TimeZone.all.find_all { |z| z.name =~ /Canada|Newfoundland/ }, :name, :to_s %>
-	</div>
-	<div class="actions"><%= f.submit %> </div>
-<% end %>
-
+</div>
 
