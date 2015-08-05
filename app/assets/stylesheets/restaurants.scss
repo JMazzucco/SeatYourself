@@ -80,7 +80,7 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
 
-#current-location {
+#current-location, #new_review_btn, #reso_submit_btn {
   zoom: 70%;
   color: #FFF;
   background-color: #D83C3C;
@@ -331,6 +331,17 @@ cf:before, .cf:after{
   }
 }
 
+.tile {
+  border: 1px solid #929492;
+  background-color: #FFF;
+  padding: 25px;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 5px;
+
+
+}
+
 #reso_booking {
   text-align: center;
   border: 1px solid #929492;
@@ -342,3 +353,28 @@ cf:before, .cf:after{
   border-radius: 0 0 5px 5px;
 }
 
+#gmap {
+  overflow: hidden;
+  height: 150px;
+}
+
+#show_ratings{
+ .rating {
+  margin-bottom: 20px;
+ }
+
+ #single_review{
+  padding: 15px 8px;
+
+  #datetime_posted {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #BBB;
+  }
+
+  }
+}
+
+#reso_submit_btn {
+  margin-top: 0;
+}

@@ -32,11 +32,12 @@
       <%end%>
     </ul>
 </nav>
-
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
+  <% if flash[:notice] || flash[:alert] %>
+    <div id="notices_alerts">
+      <span id="notice"><%= flash[:notice] %></span>
+      <span id="alert"><%= flash[:alert] %></span>
   </div>
+  <% end %>
   <div id="content">
     <%= yield %>
   </div>

@@ -11,7 +11,7 @@
 		<% if restaurant.reviews.count > 0 %>
 	    <% sum = restaurant.reviews.sum(:rating) %>
 	    <% count = restaurant.reviews.count %>
-	    <% user_rating = (sum / count.to_f).ceil %>
+	    <% user_rating = (sum / count.to_f).round %>
 	    <% empty_stars = 5 - user_rating %>
 			<% user_rating.times do |x| %>
 				<span class="filled-star" id="<%= x%>">&starf;</span>
