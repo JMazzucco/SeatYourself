@@ -1,47 +1,60 @@
+
+
+<div id="new_restaurant_form">
+<hr/>
+
 <%= form_for(@restaurant) do |f| %>
-	<% if @restaurant.errors.any? %>
-		<div class="starter-template">
-		<div id="error_explanation">
-			<h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
-			<ul>
-			<% @restaurant.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-				<% end %>
-			</ul>
+
+		<%= f.hidden_field :owner, :value => current_user.id %>
+
+		<div class="field">
+			<%= f.label :image %>
+			<%= f.url_field :image, :value => "http://" %>
 		</div>
+
+		<div class="field">
+			<%= f.label :name %>
+			<%= f.text_field :name, :placeholder => "Milestones " %>
+		</div>
+
+		<div class="field">
+			<%= f.label :address %>
+			<%= f.text_field :address, :placeholder => "123 Bay St."%>
+		</div>
+
+		<div class="field">
+	    <%= f.label "Cuisine" %>
+	    <%= f.select :cuisine_type, [['Thai'],['Italian'],['Seafood'],['Indian']]  %> <br />
+		</div>
+
+		<div class="field">
+			<%= f.label :website %>
+			<%= f.url_field :website, :value => "http://" %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit "Submit",  id:'new_rest_submit_btn'  %>
+		</div>
+	</div>
 	<% end %>
 
-	<%= f.hidden_field :owner, :value => current_user.id %>
 
-	<div class="field">
-		<%= f.label :image %><br/>
-		<%= f.url_field :image, :value => "http://" %>
-	</div>
 
-	<div class="field">
-		<%= f.label :name %><br/>
-		<%= f.text_field :name, :placeholder => "Milestones " %>
-	</div>
+      <div id="new_resturant_errors">
 
-	<div class="field">
-		<%= f.label :address %><br/>
-		<%= f.text_field :address, :placeholder => "123 Bay St."%>
-	</div>
+    <% if @restaurant.errors.any? %>
+    <hr/>
+    <div class="starter-template">
+    <div id="error_explanation">
+      <h4><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h4>
+      <ul>
+      <% @restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
 
-	<div class="field">
-    <%= f.label "Cuisine" %> <br />
-    <%= f.select :cuisine_type, [['Thai'],['Italian'],['Seafood'],['Indian']]  %> <br />
-	</div>
-	</div>
+    <% end %>
+</div>
+</div>
 
-	<div class="field">
-		<%= f.label :website %><br/>
-		<%= f.url_field :website, :value => "http://" %>
-	</div>
-
-	<div class="actions">
-		<%= f.submit %>
-		</div>
-	</div>
-<% end %>
 
