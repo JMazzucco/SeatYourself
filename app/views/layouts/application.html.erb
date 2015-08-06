@@ -11,7 +11,7 @@
 <body>
 
 <nav>
-    <span id='title'><%= link_to 'SeatYourself', root_path%></span>
+    <span id='title'><%= link_to 'SeatYourself', root_path %></span>
     <ul>
       <% if current_user %>
         <li id="logout">
@@ -19,26 +19,27 @@
         </li>
       <% else %>
         <li id="login">
-          <a id="login-trigger" href="#">
+          <a id="login-trigger" >
             Log in <span>▼</span>
           </a>
           <div id="login-content">
-             <%= render :partial => '/user_sessions/form'%>
+             <%= render :template => '/user_sessions/_form'%>
           </div>
         </li>
         <li id="signup">
           <%= link_to "Sign up", new_user_path %>
         </li>
-      <%end%>
+      <% end %>
     </ul>
 </nav>
-  <% if flash[:notice] || flash[:alert] %>
-    <div id="notices_alerts">
-      <span id="notice"><%= flash[:notice] %></span>
-      <span id="alert"><%= flash[:alert] %></span>
 
-  </div>
-  <% end %>
+    <% if flash[:notice] || flash[:alert] %>
+      <div id="notices_alerts">
+        <span id="notice"><%= flash[:notice] %></span>
+        <span id="alert"><%= flash[:alert] %></span>
+      </div>
+    <% end %>
+
   <div id="content">
     <%= yield %>
   </div>
