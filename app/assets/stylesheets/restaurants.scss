@@ -389,7 +389,8 @@ cf:before, .cf:after{
   }
 }
 
-label {
+
+#new_restaurant_container label {
   width: 4em;
   float: left;
   text-align: right;
@@ -431,10 +432,6 @@ label {
   select {
     width: 184px;
   }
-}
-
-#new_rest_submit_btn, #new_user .actions {
-
 }
 
 #new_restaurant_errors {
