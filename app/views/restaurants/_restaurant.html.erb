@@ -5,8 +5,6 @@
 	<div id="restaurant-deets">
 		<h2 id='name'><%= link_to truncate(restaurant.name.titleize, length: 20), restaurant_path(restaurant[:id]) %></h2>
 
-
-
 		<div class="rating">
 		<% if restaurant.reviews.count > 0 %>
 	    <% sum = restaurant.reviews.sum(:rating) %>

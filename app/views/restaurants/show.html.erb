@@ -120,8 +120,8 @@
 		<% end %>
 	</div>
 
-<div class="tile">
-	<h2>Nearby restaurants</h2>
+<div class="tile" id="show_nearbys">
+	<h2>Nearby Restaurants</h2>
 <% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
 	<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
 	<%= javascript_tag do %>
@@ -130,14 +130,14 @@
 <% end %>
 	<ul>
 	<% @nearby_restaurants.each do |nr| %>
-		<li><%= "#{nr.name}, #{nr.distance} km"%></li>
-		<div id="map-canvas" data-latitude='<%= @restaurant.latitude.to_f %>' data-longitude='<%= @restaurant.longitude.to_f %>'></div>
+		<li id="nearby_restaurant">
+		<% nr.distance >= 1 ? distance = "#{nr.distance.round(2)} KM" : distance = "#{(nr.distance * 1000).round} Meters" %>		<%= "#{nr.name}" %> <span><%= distance %></span></li>
 	<% end %>
 	</ul>
+<div id="map-canvas" data-latitude='<%= @restaurant.latitude.to_f %>' data-longitude='<%= @restaurant.longitude.to_f %>'></div>
 <% else %>
-	<p>No nearby restaurants found</p>
+	<p><em>No nearby restaurants found</em></p>
 <% end %>
-
 </div>
 
 <!-- <h3>Your Reservations</h3>
