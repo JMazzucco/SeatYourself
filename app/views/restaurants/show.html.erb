@@ -124,6 +124,7 @@
 	<h2>Nearby Restaurants</h2>
 <% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
 	<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
+
 	<%= javascript_tag do %>
 		window.nearbys = <%= raw @nearby_restaurants.map {|nr| {latitude: nr.latitude, longitude: nr.longitude}}.to_json %>
 	<% end %>
@@ -131,7 +132,10 @@
 	<ul>
 	<% @nearby_restaurants.each do |nr| %>
 		<li id="nearby_restaurant">
-		<% nr.distance >= 1 ? distance = "#{nr.distance.round(2)} KM" : distance = "#{(nr.distance * 1000).round} Meters" %>		<%= "#{nr.name}" %> <span><%= distance %></span></li>
+			<% nr.distance >= 1 ? distance = "#{nr.distance.round(2)} KM" : distance = "#{(nr.distance * 1000).round} Meters" %>
+			<%= link_to "#{nr.name}", restaurant_path(nr) %>
+			<span><%= distance %></span>
+		</li>
 	<% end %>
 	</ul>
 <div id="map-canvas" data-latitude='<%= @restaurant.latitude.to_f %>' data-longitude='<%= @restaurant.longitude.to_f %>'></div>

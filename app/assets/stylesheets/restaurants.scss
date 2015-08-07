@@ -104,7 +104,7 @@ body {
 ;
 
   h2 {
-    padding-top: 8px;
+    padding-top: 5px;
     font-size: 14px;
     padding-left: 3px;
     margin: 0;
@@ -188,7 +188,7 @@ body {
       }
 
       a:hover {
-        color: #505050;
+        color: #6B6B6B;
       }
     }
 }
@@ -388,10 +388,21 @@ cf:before, .cf:after{
 #nearby_restaurant {
   list-style-type: none;
   padding: 5px 0;
-  font-size: 1.2em;
+
+    a{
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+
+      &:hover {
+        color: #6B6B6B;
+      }
+    }
     span {
       color: #0167C0;
       font-size: 13px;
+      font-weight: normal;
     }
 }
 
