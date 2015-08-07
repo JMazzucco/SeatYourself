@@ -26,7 +26,7 @@
 	  <% end %>
 		</div>
 
-	<p id="cusine_city"><%= @restaurant.cuisine_type.titleize.upcase %> &bull; CITY
+	<p id="cusine_city"><%= @restaurant.cuisine_type.upcase %> &bull; <%= @restaurant.city.upcase %>
 		<%#= truncate(restaurant.address.titleize, length: 25) %></p>
 
 	<p><%#= @restaurant.address %></p>
@@ -69,7 +69,7 @@
 
 	<div class="tile" id="show_ratings">
 
-	<h2><%= @restaurant.name.capitalize %> Ratings and Reviews</h2>
+	<h2><%= @restaurant.name %> Ratings and Reviews</h2>
 		<div class="rating">
 		<% if @restaurant.reviews.count > 0 %>
 			<% user_rating.times do |x| %>

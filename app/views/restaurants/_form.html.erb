@@ -18,8 +18,23 @@
 		</div>
 
 		<div class="field">
-			<%= f.label :address %>
-			<%= f.text_field :address, :placeholder => "123 Bay St."%>
+    	<%= f.label :street, 'Street' %>
+    	<%= f.text_field :street %>
+		</div>
+
+		<div class="field">
+			 <%= f.label :city, 'City' %>
+    	<%= f.text_field :city %>
+		</div>
+
+		<div class="field">
+		 	<%= f.label :prov, 'Province' %>
+    	<%= f.text_field :prov %>
+		</div>
+
+		<div class="field">
+		 	<%= f.label :postal, 'Postal Code' %>
+    	<%= f.text_field :postal %>
 		</div>
 
 		<div class="field">
@@ -36,11 +51,10 @@
 			<%= f.submit "Submit",  id:'new_rest_submit_btn'  %>
 		</div>
 	</div>
-	<% end %>
 
+<% end %>
 
-
-      <div id="new_resturant_errors">
+    <div id="new_resturant_errors">
 
     <% if @restaurant.errors.any? %>
     <hr/>

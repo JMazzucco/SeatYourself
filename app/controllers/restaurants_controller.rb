@@ -36,13 +36,20 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new(restaurant_params)
+    appended_params = restaurant_params
+    appended_params[:address] = "#{restaurant_params[:street]}, #{restaurant_params[:city]}, #{restaurant_params[:prov]}, #{restaurant_params[:postal]}"
+
+    @restaurant = Restaurant.new(appended_params)
 
     if @restaurant.save
       redirect_to restaurants_url
     else
       render :new
     end
+
+
+    # address = restaurant_params[street]
+    # binding.pry
   end
 
   def edit
@@ -75,6 +82,6 @@ class RestaurantsController < ApplicationController
 
 private
   def restaurant_params
-    params.require(:restaurant).permit(:image, :name, :address, :cuisine_type, :website, :owner)
+    params.require(:restaurant).permit(:image, :name, :street, :city, :prov, :postal, :cuisine_type, :website, :owner)
   end
 end
