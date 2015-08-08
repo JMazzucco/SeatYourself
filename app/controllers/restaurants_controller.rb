@@ -39,17 +39,13 @@ class RestaurantsController < ApplicationController
     appended_params = restaurant_params
     appended_params[:address] = "#{restaurant_params[:street]}, #{restaurant_params[:city]}, #{restaurant_params[:prov]}, #{restaurant_params[:postal]}"
 
-    @restaurant = Restaurant.new(appended_params)
+    @restaurant = Restaurant.new(appended_params  )
 
     if @restaurant.save
       redirect_to restaurants_url
     else
       render :new
     end
-
-
-    # address = restaurant_params[street]
-    # binding.pry
   end
 
   def edit

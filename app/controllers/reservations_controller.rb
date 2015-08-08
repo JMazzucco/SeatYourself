@@ -18,7 +18,6 @@ class ReservationsController < ApplicationController
     end
 
     submitted_datetime = DateTime.new(date_params[0], date_params[1], date_params[2], date_params[3], date_params[4])
-
     if (submitted_datetime > DateTime.now) && (submitted_datetime < 31.days.from_now)
       @seats_booked = @restaurant.reservations.where(time: submitted_datetime).sum("party_size")
 

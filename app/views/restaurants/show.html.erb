@@ -51,14 +51,26 @@
 					<p><%#= f.label :party_size %>
 					<%= f.text_field :party_size, placeholder: "Number of People" %></p>
 					<%= f.submit 'Book Reservation', id:'reso_submit_btn' %>
-
 			<% end %>
 	</div>
 
+	<% if current_user.reservations.count > 0 %>
+		<div class="tile">
+			<h2>Your Reservations</h2>
+			<ul>
+			<% current_user.reservations.each do |reso| %>
+				<li><%= reso.time.strftime("%A, %B  %d at %l:%M %p")%> for <%= reso.party_size %> people</li>
+
+				<%= link_to 'Cancel', restaurant_reservation_path(restaurant_id: reso.restaurant_id, id: reso.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+			<% end %>
+			</ul>
+		</div>
+
+	<% end %>
+
 	<div class="tile">
 		<h2>About <%= @restaurant.name %></h2>
-		<h4><%= @restaurant.address.titleize %></h4>
-
+		<h4><%= @restaurant.address %></h4>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam felis erat, vehicula et blandit eget, gravida consequat felis. Sed id venenatis diam, quis lobortis odio. Nunc ut dui et tortor luctus eleifend vel ut urna. Suspendisse dictum efficitur elit vel efficitur.</p>
 
