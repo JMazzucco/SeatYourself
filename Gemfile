@@ -28,7 +28,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 gem 'geocoder'
 gem 'figaro'
-
+gem 'carrierwave'
+gem 'mini_magick'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,6 +1,7 @@
 <div class='restaurant'>
 	<div id="thumb">
-		<%= link_to image_tag("http://placehold.it/100x100"), restaurant_path(restaurant[:id]) %>
+		<%#= link_to image_tag("http://placehold.it/100x100"), restaurant_path(restaurant[:id]) %>
+		<%= link_to (image_tag restaurant.image.url(:thumb)),restaurant_path(restaurant[:id]) %>
 	</div>
 	<div id="restaurant-deets">
 		<h2 id='name'><%= link_to truncate(restaurant.name, length: 20), restaurant_path(restaurant[:id]) %></h2>

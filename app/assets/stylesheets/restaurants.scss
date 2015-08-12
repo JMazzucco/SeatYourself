@@ -149,12 +149,16 @@ body {
   border-radius: 5px;
     #thumb{
       display: inline-block;
+      padding-top: 4px;
 
      a:hover {
         opacity: 0.8;
       }
      img {
       border-radius: 100%;
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
      }
     }
 
@@ -315,6 +319,12 @@ cf:before, .cf:after{
   height: 300px;
   background-color: grey;
   padding: 15px;
+
+   img {
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+    }
 
   #full_img {
     border-radius: 5px;
