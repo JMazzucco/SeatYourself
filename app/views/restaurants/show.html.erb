@@ -74,7 +74,10 @@
 		<p><%= @restaurant.description %></p>
 
 		<div id="gmap">
-			<img  src="http://www.digicution.com/wp-content/uploads/2012/06/HTML5-Repsonsive-Google-Maps-Tutorial-1.png"/>
+			<% uri = "https://maps.googleapis.com/maps/api/staticmap?size=500x300&maptype=roadmap\
+&markers=size:large%7Ccolor:red%7C" + @restaurant.address %>
+			<%= image_tag(uri) %>
+
 		</div>
 	</div>
 

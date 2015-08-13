@@ -379,8 +379,9 @@ cf:before, .cf:after{
 }
 
 #gmap {
-  overflow: hidden;
-  height: 150px;
+  img{
+    width: 100%;
+  }
 }
 
 #show_ratings{
