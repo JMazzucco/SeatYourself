@@ -53,7 +53,7 @@
 			<% end %>
 	</div>
 
-	<% if current_user.reservations.count > 0 %>
+	<% if current_user && current_user.reservations.count > 0 %>
 		<div class="tile">
 			<h2>Your Reservations</h2>
 			<ul>
