@@ -19,4 +19,12 @@
 	<section id="restaurants_section">
     <%= render @restaurants %>
   </section>
+
+  <div id="new_rest_link_container">
+    <%= link_to "Add New Restaurant", new_restaurant_path, id:"new_rest_link"%>
+  </div>
 </div>
+
+
+
+      <%#= link_to "Leave a Review", new_restaurant_review_path(@restaurant), id:"new_review_btn"%>

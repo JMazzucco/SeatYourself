@@ -1,6 +1,5 @@
 <div class='restaurant'>
 	<div id="thumb">
-		<%#= link_to image_tag("http://placehold.it/100x100"), restaurant_path(restaurant[:id]) %>
 		<%= link_to (image_tag restaurant.image.url(:thumb)),restaurant_path(restaurant[:id]) %>
 	</div>
 	<div id="restaurant-deets">
@@ -28,9 +27,5 @@
 		</div>
 
 		<p id="cusine_city"><%= restaurant.cuisine_type.upcase %> &bull; <%= restaurant.city.upcase %>
-		<%#= truncate(restaurant.address.titleize, length: 25) %></p>
-
-
-	  <p><%#= link_to "View Details »", restaurant_path(restaurant[:id]) %></p>
   </div>
 </div>

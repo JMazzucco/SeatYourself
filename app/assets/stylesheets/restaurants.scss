@@ -75,7 +75,7 @@ body {
   box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
 
-#current-location, #new_review_btn, #reso_submit_btn, #new_rest_submit_btn, #new_user_submit_btn, #new_review_submit_btn {
+#current-location, #new_review_btn, #reso_submit_btn, #new_rest_submit_btn, #new_user_submit_btn, #new_review_submit_btn, #new_rest_link {
   zoom: 70%;
   color: #FFF;
   background-color: #D83C3C;
@@ -87,6 +87,15 @@ body {
   &:hover{
     background: #e54040;
   }
+}
+
+#new_rest_link {
+  padding: 10px;
+  text-decoration: none;
+}
+
+#new_rest_link_container {
+  padding: 0 0 20px 10px;
 }
 
 #results-header {
