@@ -127,7 +127,9 @@
 
 
 		<% if current_user %>
-		<button id="new_review_btn">Leave a Review</button>
+
+
+			<%= link_to "Leave a Review", new_restaurant_review_path(@restaurant), id:"new_review_btn"%>
 		<% end %>
 	</div>
 
