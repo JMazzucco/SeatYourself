@@ -1,4 +1,6 @@
 class Restaurant < ActiveRecord::Base
+	validates_length_of :description, maximum: 500, too_long: 'Enter a description under 500 characters'
+
 	mount_uploader :image, ImageUploader
 	geocoded_by :address
 	after_validation :geocode, if: :address_changed?

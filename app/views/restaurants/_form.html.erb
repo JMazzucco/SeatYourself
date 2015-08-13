@@ -41,6 +41,11 @@
 		</div>
 
 		<div class="field">
+			<%= f.label "Description" %>
+		  <%= f.text_area :description %>
+		</div>
+
+		<div class="field">
 			<%= f.label :website %>
 			<%= f.url_field :website, :value => "http://" %>
 		</div>
