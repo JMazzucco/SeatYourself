@@ -1,22 +1,33 @@
+<div id='new_review_container'>
 
-<%= form_for([@restaurant, @review]) do |f| %>
+	<div id='new_review'>
+	<h2>Review and Rating for <%= @restaurant.name %></h2>
+	<hr/>
 
-	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= form_for [@restaurant, @review], html: {id: "new_review_form"} do |f| %>
 
-	<div class="field">
-    <%= f.label "rating" %> <br />
-    <%= f.select :rating, [1,2,3,4,5]  %> <br />
-	</div>
+		<%= f.hidden_field :user_id, value: current_user.id %>
 
-	<div class="field">
-		<%= f.label :comment %><br/>
-		<%= f.text_area :comment, :placeholder => "What was your experience like at this restaurant?" %>
-	</div>
-
-	<div class="actions">
-		<%= f.submit %>
+		<div class="field">
+			<%= f.label :rating %>
+	    <%= f.select :rating, [1,2,3,4,5] %>
 		</div>
-	</div>
 
-<% end %>
+		<div class="field">
+	    <%= f.label :title %>
+	    <%= f.text_field :title %>
+		</div>
+
+		<div class="field">
+			<%= f.label :comment %>
+			<%= f.text_area :comment, placeholder: "How was your experience?" %>
+		</div>
+
+		<div class="actions">
+			<%= f.submit "Submit", id:"new_user_submit_btn" %>
+		</div>
+	<% end %>
+
+	</div>
+</div>
 

@@ -102,7 +102,7 @@
 		<% if @restaurant.reviews.count > 0 %>
 			<% @restaurant.reviews.each do |r| %>
 				<div id="single_review">
-					<h3>Comment Title</h3>
+					<h3><%= r.title %></h3>
 					<% empty_stars_single_review = 5 - r.rating %>
 					<% r.rating.times do |x| %>
 						<span class="filled-star" id="<%= x%>">&starf;</span>
@@ -118,8 +118,7 @@
 
 					<h4><%= r.user.name.capitalize %>&nbsp
 					<span id="datetime_posted"><%= r.created_at.strftime("%B %d, %Y at %l:%M %p") %></span></h4>
-						<p><%#= r.comment %>
-						Donec accumsan sagittis sem. Duis non ante sed nulla auctor luctus. Donec mauris quam, posuere et blandit vitae, lacinia id neque. Suspendisse potenti. Vestibulum vitae ex non turpis mollis tempus in sed velit. Pellentesque eros massa, imperdiet vel auctor a, vehicula ac mauris.</p>
+						<p><%= r.comment %></p>
 					</div>
 			<% end %>
 		<% end %>
