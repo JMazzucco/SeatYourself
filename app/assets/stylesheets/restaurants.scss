@@ -454,7 +454,7 @@ cf:before, .cf:after{
 }
 
 #new_restaurant_container label, #new_review_container label {
-  width: 4em;
+  width: 5em;
   float: left;
   text-align: right;
   margin-right: 0.5em;
@@ -479,6 +479,10 @@ cf:before, .cf:after{
 
 .new_restaurant, #new_user_container {
   padding-top: 15px;
+
+    #restaurant_image{
+    width: 195px
+  }
 }
 
 #new_user_container, #new_review_container {
