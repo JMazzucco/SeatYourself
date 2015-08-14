@@ -390,6 +390,8 @@ cf:before, .cf:after{
 #gmap {
   img{
     width: 100%;
+    max-width: 500px;
+    min-height: 200px;
   }
 }
 
@@ -479,7 +481,6 @@ cf:before, .cf:after{
 
 .new_restaurant, #new_user_container {
   padding-top: 15px;
-
     #restaurant_image{
     width: 195px
   }
@@ -510,4 +511,20 @@ cf:before, .cf:after{
 #new_review_form {
   margin-top: 40px;
 }
+
+
+@media (max-width: 320px) {
+
+.form-wrapper {
+    zoom: 65%;
+  }
+
+#thumb * {
+  display: none;
+}
+
+}
+
+
+
 
