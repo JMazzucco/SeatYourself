@@ -26,6 +26,15 @@
 	  <% end %>
 		</div>
 
+
+
 		<p id="cusine_city"><%= restaurant.cuisine_type.upcase %> &bull; <%= restaurant.city.upcase %>
   </div>
+
+  <div id="deets-review">
+	  <% if restaurant.reviews.count > 0  %>
+			<p>&ldquo;<%= truncate(restaurant.reviews.last.comment, length: 70) %>&rdquo;</p>
+			<p><%= restaurant.reviews.last.created_at.strftime("%B  %d, %Y") %></p>
+		<% end %>
+	</div>
 </div>
