@@ -1,73 +1,86 @@
 <div id="show_deets">
-	<div>
+	<div id="res_header_img">
 		<%= image_tag @restaurant.image.url(:medium) %>
 	</div>
-	<!-- <img src="<%#= @restaurant.image %>"/> -->
 
-	<h1><%= @restaurant.name %></h1>
+	<div id="res_header_details">
+		<h1><%= @restaurant.name %></h1>
 
-	<div class="rating">
-		<% if @restaurant.reviews.count > 0 %>
-	    <% sum = @restaurant.reviews.sum(:rating) %>
-	    <% count = @restaurant.reviews.count %>
-	    <% user_rating = (sum / count.to_f).round%>
-	    <% empty_stars = 5 - user_rating %>
-			<% user_rating.times do |x| %>
-				<span class="filled-star" id="<%= x%>">&starf;</span>
+		<div class="rating">
+			<% if @restaurant.reviews.count > 0 %>
+		    <% sum = @restaurant.reviews.sum(:rating) %>
+		    <% count = @restaurant.reviews.count %>
+		    <% user_rating = (sum / count.to_f).round%>
+		    <% empty_stars = 5 - user_rating %>
+				<% user_rating.times do |x| %>
+					<span class="filled-star" id="<%= x%>">&starf;</span>
+			  <% end %>
+			  <% empty_stars.times do |x| %>
+					<span class="empty-star" id="<%= x%>">&starf;</span>
+			  <% end %>
+		  <% else %>
+		     <% 5.times do |x| %>
+					<span class="empty-star" id="<%= x%>">&starf;</span>
+					<% end %>
 		  <% end %>
-		  <% empty_stars.times do |x| %>
-				<span class="empty-star" id="<%= x%>">&starf;</span>
-		  <% end %>
-	  <% else %>
-	     <% 5.times do |x| %>
-				<span class="empty-star" id="<%= x%>">&starf;</span>
-				<% end %>
-	  <% end %>
 		</div>
 
-	<p id="cusine_city"><%= @restaurant.cuisine_type.upcase %> &bull; <%= @restaurant.city.upcase %>
-		<%#= truncate(restaurant.address.titleize, length: 25) %></p>
+		<p id="cusine_city"><%= @restaurant.cuisine_type.upcase %> &bull; <%= @restaurant.city.upcase %>
+		<p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
 
-	<p><%#= @restaurant.address %></p>
-	<p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
-
-	<% if current_user && current_user.id == @restaurant.owner %>
-	<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
-	<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
-<% end %>
+		<% if current_user && current_user.id == @restaurant.owner %>
+			<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
+			<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
+		<% end %>
+	</div>
 </div>
 
 <div id="content-bg">
-	<div id="reso_booking">
+	<div class="tile" id="reso_booking">
+		 	<h2>Book a Reservation</h2>
 		  <%= form_for([@restaurant, @reservation]) do |f| %>
-					<%#= f.label :time %>
-					<%= f.datetime_select :time,
+					<p><%= f.label :time, "Date" %></p>
+					<%= f.date_select :time,
 				 		:default => 24.hours.from_now,
 		        :minute_step => 15,
 				    :discard_year => true
-				    %>
+				   %>
+				  <p>
+				  <p><%= f.label :time, "Time" %></p>
+				  <%= f.time_select :time,
+				 		:default => 24.hours.from_now,
+		        :minute_step => 15,
+				    :discard_year => true
+				  %>
+				  </p>
 
-					<p><%#= f.label :party_size %>
-					<%= f.text_field :party_size, placeholder: "Number of People" %></p>
+					<p><%= f.label :party_size, "Party Size"%></p>
+					<p><%= f.text_field :party_size %></p>
 					<%= f.submit 'Book Reservation', id:'reso_submit_btn' %>
 			<% end %>
 	</div>
 
 	<% if current_user && current_user.reservations.count > 0 %>
-		<div class="tile">
+		<div class="tile" id="booked_reservations">
 			<h2>Your Reservations</h2>
 			<ul>
+			<% counter = 1 %>
 			<% current_user.reservations.each do |reso| %>
-				<li><%= reso.time.strftime("%A, %B  %d at %l:%M %p")%> for <%= reso.party_size %> people</li>
 
-				<%= link_to 'Cancel', restaurant_reservation_path(restaurant_id: reso.restaurant_id, id: reso.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+				<li>
+				<div class="num_list_icon"><span><%= counter %></span></div>
+				<div id="reservation"><%= reso.time.strftime("%b %e, %l:%M %p")%> for <%= reso.party_size %> people</li>
+
+				<%= link_to 'Cancel', restaurant_reservation_path(restaurant_id: reso.restaurant_id, id: reso.id),  method: :delete, data: { confirm: 'Are you sure?' }, id:"cancel_reso_link" %>
+				<% counter += 1%>
 			<% end %>
+			</div>
 			</ul>
-		</div>
+
 
 	<% end %>
 
-	<div class="tile">
+	<div class="tile" id="show_about">
 		<h2>About <%= @restaurant.name %></h2>
 		<h4><%= @restaurant.address %></h4>
 
@@ -133,23 +146,27 @@
 	</div>
 
 <div class="tile" id="show_nearbys">
-	<h2>Nearby Restaurants</h2>
-<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
-	<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
 
-	<%= javascript_tag do %>
-		window.nearbys = <%= raw @nearby_restaurants.map {|nr| {latitude: nr.latitude, longitude: nr.longitude}}.to_json %>
-	<% end %>
-<% end %>
-	<ul>
-	<% @nearby_restaurants.each do |nr| %>
-		<li id="nearby_restaurant">
-			<% nr.distance >= 1 ? distance = "#{nr.distance.round(2)} KM" : distance = "#{(nr.distance * 1000).round} Meters" %>
-			<%= link_to "#{nr.name}", restaurant_path(nr) %>
-			<span><%= distance %></span>
-		</li>
-	<% end %>
-	</ul>
+	<div id="nearbys_text">
+		<h2>Nearby Restaurants</h2>
+		<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
+			<% if @nearby_restaurants != nil && @nearby_restaurants.any? %>
+
+			<%= javascript_tag do %>
+				window.nearbys = <%= raw @nearby_restaurants.map {|nr| {latitude: nr.latitude, longitude: nr.longitude}}.to_json %>
+			<% end %>
+		<% end %>
+		<ul>
+		<% @nearby_restaurants.each do |nr| %>
+			<li id="nearby_restaurant">
+				<% nr.distance >= 1 ? distance = "#{nr.distance.round(2)} Kilometers" : distance = "#{(nr.distance * 1000).round} Meters" %>
+				<%= link_to "#{nr.name}", restaurant_path(nr) %>
+				<span><%= distance %></span>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+
 <div id="map-canvas" data-latitude='<%= @restaurant.latitude.to_f %>' data-longitude='<%= @restaurant.longitude.to_f %>'></div>
 <% else %>
 	<p><em>No nearby restaurants found</em></p>
