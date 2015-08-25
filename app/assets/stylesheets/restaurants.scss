@@ -719,27 +719,29 @@ cf:before, .cf:after{
   margin-right: 40px;
 }
 
-#new_restaurant_container{
+#new_restaurant_container, #new_user_container{
+
+  h2, h1{
+    text-align: left;
+    padding: 0 5%;
+  }
+
   width: 80%;
   margin: 100px auto;
 }
 
-#new_restaurant_form {
+#new_restaurant_form, #new_user {
   margin-left: 5%;
-
-  hr {
-    border: 0;
-    height: 1px;
-    width: 80%;
-    float: left;
-    background-image: linear-gradient(to right, #d8d5d5, #d8d5d5, transparent);
-  }
 }
 
-#new_restaurant_container h2{
-    text-align: left;
-    padding: 0 5%;
+hr {
+  border: 0;
+  height: 1px;
+  width: 80%;
+  float: left;
+  background-image: linear-gradient(to right, #d8d5d5, #d8d5d5, transparent);
 }
+
 }
 
 @media (min-width: 920px) {
