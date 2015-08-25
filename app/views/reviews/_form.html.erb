@@ -2,10 +2,11 @@
 
 	<div id='new_review'>
 	<h2>Review and Rating for <%= @restaurant.name %></h2>
-	<hr/>
+
 
 	<%= form_for [@restaurant, @review], html: {id: "new_review_form"} do |f| %>
-
+	<hr/>
+	<br/>
 		<%= f.hidden_field :user_id, value: current_user.id %>
 
 		<div class="field">
@@ -15,12 +16,12 @@
 
 		<div class="field">
 	    <%= f.label :title %>
-	    <%= f.text_field :title %>
+	    <%= f.text_field :title, placeholder: "Best Chicken Vindaloo!" %>
 		</div>
 
 		<div class="field">
 			<%= f.label :comment %>
-			<%= f.text_area :comment, placeholder: "How was your experience?" %>
+			<%= f.text_area :comment %>
 		</div>
 
 		<div class="actions">

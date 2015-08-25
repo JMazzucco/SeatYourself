@@ -3,16 +3,7 @@
 	<hr/>
 	<br/>
 	<%= form_for @user do |f| %>
-		<% if @user.errors.any? %>
-			<div class="error_messages">
-				<h2>Form is invalid</h2>
-				<ul>
-					<% for message in @user.errors.full_messages %>
-						<li><%= message %></li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
+
 
 		<div class="field" %>
 			<%= f.label :name %>
@@ -36,5 +27,17 @@
 		</div>
 		<div class="actions"><%= f.submit "Submit", id:"new_user_submit_btn" %> </div>
 	<% end %>
+
+
+			<% if @user.errors.any? %>
+			<div class="error_messages">
+				<h2>Form is invalid</h2>
+				<ul>
+					<% for message in @user.errors.full_messages %>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
 </div>
 
