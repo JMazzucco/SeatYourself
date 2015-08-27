@@ -25,7 +25,6 @@ class RestaurantsController < ApplicationController
 
     #An array of hours open
     @hours_open = (11..23).to_a
-    binding.pry
     #iterate through each hour and only keep it if the sum of the party size of the selected hour is under 100
    @hours_open.keep_if do |timeslot|
       @restaurant.reservations.where(time: timeslot).sum("party_size") < 100 || @restaurant.reservations.where(time: timeslot).sum("party_size") == nil
