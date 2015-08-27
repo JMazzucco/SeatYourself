@@ -28,7 +28,7 @@ class RestaurantsController < ApplicationController
     #iterate through each hour and only keep it if the sum of the party size of the selected hour is under 100
    #@hours_open.keep_if do |timeslot|
     #  @restaurant.reservations.where(time: timeslot).sum("party_size") < 100 || @restaurant.reservations.where(time: timeslot).sum("party_size") == nil
-    end
+    #end
   end
 
   def new
