@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-       binding.pry
+
     #the record of the current restaurant
     @restaurant = Restaurant.find(params[:id])
     @reservation = @restaurant.reservations.build
