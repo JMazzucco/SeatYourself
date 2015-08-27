@@ -69,7 +69,8 @@
 
 				<li>
 				<div class="num_list_icon"><span><%= counter %></span></div>
-				<div id="reservation"><%= reso.time.strftime("%b %e, %l:%M %p")%> for <%= reso.party_size %> people</li>
+				<div id="reservation"><%= reso.time %> for <%= reso.party_size %> people</li>
+<%#= reso.time.strftime("%b %e, %l:%M %p")%>
 
 				<%= link_to 'Cancel', restaurant_reservation_path(restaurant_id: reso.restaurant_id, id: reso.id),  method: :delete, data: { confirm: 'Are you sure?' }, id:"cancel_reso_link" %>
 				<% counter += 1%>
