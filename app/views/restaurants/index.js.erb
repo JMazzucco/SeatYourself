@@ -1,1 +1,2 @@
 $('#restaurants_section').html('<%= j(render @restaurants) %>');
+$('#count').html('<%= pluralize(@results_count, "Restaurant").upcase %>');

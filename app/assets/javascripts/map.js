@@ -9,7 +9,6 @@ Map.prototype.init = function(latitude, longitude){
     zoom: 15,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-
   this.canvas = new google.maps.Map(this.mapElem, options);
 }
 

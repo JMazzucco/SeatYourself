@@ -166,12 +166,14 @@ nav {
 }
 
 #notices_alerts {
-	padding: 3px;
-	position: absolute;
-	height: 20px;
-	width: 100%;
-	background-color: #D6D6D6;
-}
+    padding: 3px;
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    padding-top: 35px;
+    background-color: #D6D6D6;
+    color: #D43A3A;
+ }
 
 @media (min-width: 650px) {
 nav{
@@ -196,5 +198,9 @@ nav li #login-content {
     padding-right: 0px;
     margin-top: 35px;
     border-radius: 0 0 0 10px;
+}
+
+#notices_alerts {
+	padding-top: 65px;
 }
 }

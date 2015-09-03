@@ -3,12 +3,14 @@ class RestaurantsController < ApplicationController
 
   def index
     if params[:search]
-      @restaurants = Restaurant.near(params[:search], 1, units: :km)
+      @restaurants = Restaurant.near(params[:search], 10, units: :km)
     elsif params[:longitude] && params[:latitude]
-      @restaurants = Restaurant.near([params[:latitude], [:longitude]], 1, units: :km)
+      @restaurants = Restaurant.near([params[:latitude], params[:longitude]], 10, units: :km)
     else
       @restaurants = Restaurant.all
     end
+
+      @results_count = @restaurants.size
 
     respond_to do |f|
       f.html
@@ -17,7 +19,6 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-
     #the record of the current restaurant
     @restaurant = Restaurant.find(params[:id])
     @reservation = @restaurant.reservations.build
@@ -26,7 +27,7 @@ class RestaurantsController < ApplicationController
     #An array of hours open
     @hours_open = (11..23).to_a
     #iterate through each hour and only keep it if the sum of the party size of the selected hour is under 100
-   @hours_open.keep_if do |timeslot|
+    @hours_open.keep_if do |timeslot|
       @restaurant.reservations.where(time: timeslot).sum("party_size") < 100 || @restaurant.reservations.where(time: timeslot).sum("party_size") == nil
     end
   end
@@ -39,7 +40,7 @@ class RestaurantsController < ApplicationController
     appended_params = restaurant_params
     appended_params[:address] = "#{restaurant_params[:street]}, #{restaurant_params[:city]}, #{restaurant_params[:prov]}, #{restaurant_params[:postal]}"
 
-    @restaurant = Restaurant.new(appended_params  )
+    @restaurant = Restaurant.new(appended_params)
 
     if @restaurant.save
       redirect_to restaurants_url
