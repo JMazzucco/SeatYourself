@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     if @user = login(params[:email], params[:password], params[:remember])
       redirect_back_or_to(:restaurants, notice: 'Login successful')
     else
-      redirect_to(:restaurants, notice: 'Login failed')
+      redirect_to(:back, notice: 'Login failed')
     end
 
   end

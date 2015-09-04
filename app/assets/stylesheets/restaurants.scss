@@ -359,6 +359,7 @@ cf:before, .cf:after{
 #booked_reservations {
 
   padding: 15px;
+  padding-top: 0;
 
   h2 {
     padding-left: 10px;
@@ -394,7 +395,6 @@ cf:before, .cf:after{
 
 #reservation{
   display: inline-block;
-  padding-top: 25px;
 }
 
 
@@ -682,9 +682,10 @@ cf:before, .cf:after{
   }
 
 #show_deets {
-  margin-top: 65px;
   padding: 35px;
   height: 210px;
+  margin-top: 0px;
+  padding-top: 120px;
 
   h1{
     font-size: 2.5em;
@@ -809,10 +810,7 @@ hr {
   padding: 20px 0 60px;
 }
 
-#booked_reservations h2 {
-  padding-left: 0px;
-  padding-top: 30px;
-}
+
 
 #reso_booking, #booked_reservations{
   width: 36%;
@@ -835,11 +833,12 @@ margin-left: 15%;
 }
 
 #booked_reservations{
-  padding-top: 30px
-}
-
-#booked_reservations h2 {
-    padding-top: 0px;
+    ul {
+      margin-top: 0px;
+    }
+    p {
+      padding-left: 10px
+    }
   }
 
 #show_about{
@@ -848,6 +847,12 @@ margin-left: 15%;
   h2 {
     padding-left: 0;
   }
+}
+
+#resos_title {
+  padding-top: 45px;
+  margin-top: 0;
+
 }
 
 #show_nearbys, #show_about, #show_ratings {

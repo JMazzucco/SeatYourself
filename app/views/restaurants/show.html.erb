@@ -60,9 +60,11 @@
 			<% end %>
 	</div>
 
+
+
 	<% if current_user && current_user.reservations.count > 0 %>
 		<div class="tile" id="booked_reservations">
-			<h2>Your Reservations</h2>
+		<h2 id="resos_title">Your Reservations</h2>
 			<ul>
 			<% counter = 1 %>
 			<% current_user.reservations.each do |reso| %>
@@ -83,20 +85,22 @@
 			</div>
 			</ul>
 
-
+	<% else %>
+	 <div class="tile" id="booked_reservations">
+		 <h2 id="resos_title">Your Reservations</h2>
+		 <p><em>No reservations have been booked</em></p>
+	 </div>
 	<% end %>
 
 	<div class="tile" id="show_about">
 		<h2>About <%= @restaurant.name %></h2>
 		<h4><%= @restaurant.address %></h4>
-
 		<p><%= @restaurant.description %></p>
 
 		<div id="gmap">
 			<% uri = "https://maps.googleapis.com/maps/api/staticmap?size=500x300&maptype=roadmap\
 &markers=size:large%7Ccolor:red%7C" + @restaurant.address %>
 			<%= image_tag(uri) %>
-
 		</div>
 	</div>
 
@@ -120,8 +124,9 @@
 	  <% end %>
 		</div>
 
-<hr>
+
 		<% if @restaurant.reviews.count > 0 %>
+		<hr>
 			<% @restaurant.reviews.each do |r| %>
 				<div id="single_review">
 					<h3><%= r.title %></h3>
@@ -143,6 +148,8 @@
 						<p><%= r.comment %></p>
 					</div>
 			<% end %>
+			<% else %>
+				<p><em>Be the first to leave a review!</em></p>
 		<% end %>
 
 		<% if current_user && @restaurant.reviews.where(user_id: current_user).count == 0  %>
@@ -178,24 +185,4 @@
 	<p><em>No nearby restaurants found</em></p>
 <% end %>
 </div>
-
-<!-- <h3>Your Reservations</h3>
-	<p>Your reservations for <%#= @restaurant.name %></p>
-	<%# if current_user %>
-	<%# @restaurant.reservations.where(user_id: current_user).each do |res| %>
-			<p>
-				<%#= res.time.strftime("%A, %d %B %Y at %l:%M %p") %> for <%#= pluralize(res.party_size, "person") %>
-			</p>
-				<%#= link_to "Cancel Reservation", restaurant_reservation_path(@restaurant, res), :method => :delete %>
-			</p>
-			<hr/>
-		<%# end %>
-	<%# end %> -->
-<!--
-<%# if current_user %>
-	<%#= link_to "leave a review!", new_restaurant_review_path(@restaurant) %>
-	<%# if @hours_open.empty? %>
-		<h3>Sorry, this restaurant is booked for today!</h3>
-	<%# end %>
-<%# end %> -->
 </div>
