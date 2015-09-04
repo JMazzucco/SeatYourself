@@ -40,24 +40,6 @@ body {
  background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top, rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%,#092756 100%);
  background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top, rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg, #670d10 0%,#092756 100%);
-
-    // &:before {
-    //   content: "";
-    //   position: absolute;
-    //   left: 0;
-    //   right: 0;
-    //   z-index: -1;
-    //   display: block;
-    //   // background-image: url("restaurant-mobile.jpg");
-    //   height: 300px;
-    //   background-position: 0px -73px;
-    //   background-repeat: no-repeat;
-    //   -webkit-filter: blur(2.5px);
-    //   -moz-filter: blur(2.5px);
-    //   -o-filter: blur(2.5px);
-    //   -ms-filter: blur(2.5px);
-    //   filter: blur(2.5px);
-    // }
   overflow: hidden;
   height: 250px;
   z-index: 0;
@@ -545,6 +527,7 @@ cf:before, .cf:after{
 #new_restaurant_form {
  margin: inherit;
  margin-top: 0;
+ margin-bottom: 5px;
   #new_restaurant_btm_hr {
     clear:both;
   }
@@ -573,10 +556,26 @@ cf:before, .cf:after{
   }
 }
 
+.error_messages {
+  margin-top: 25px;
+  border: 2px solid #D83C3C;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.05);
+
+  ul {
+    list-style: none;
+  }
+}
+
+#error_msgs_padding {
+  margin:5%;
+}
+
 #new_restaurant_errors {
   position: relative;
   padding-top: 20px;
   margin: 0 20px;
+
 }
 
 #new_review_form {
@@ -690,20 +689,17 @@ cf:before, .cf:after{
   h1{
     font-size: 2.5em;
   }
-
 }
 
 #res_header_details{
   display: inline-block;
   vertical-align: top;
   margin: 30px;
-
 }
 
 #res_header_img{
   display: inline-block;
 }
-
 
 #nearbys_text{
   max-height: 400px;
@@ -720,14 +716,23 @@ cf:before, .cf:after{
 }
 
 #new_restaurant_container, #new_user_container, #new_review{
-
   h2, h1{
     text-align: left;
     padding: 0 5%;
   }
-
   width: 80%;
   margin: 100px auto;
+}
+
+#new_restaurant_container{
+  margin-top: 0px;
+  padding-top: 100px;
+  background-color: #EEE;
+}
+
+#new_restaurant_form_pad{
+  background-color: #FFF;
+  padding: 20px 0;
 }
 
 #new_restaurant_form, #new_user, #new_review_form {

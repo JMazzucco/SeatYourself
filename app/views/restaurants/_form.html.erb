@@ -1,77 +1,74 @@
-<div id="new_restaurant_form">
-<hr/>
 
-<%= form_for(@restaurant) do |f| %>
+	<div id="new_restaurant_form">
+	<hr/>
+	<%= form_for(@restaurant) do |f| %>
 
-		<%= f.hidden_field :owner, :value => current_user.id %>
+			<%= f.hidden_field :owner, :value => current_user.id %>
 
-		<div class="field">
-			<%= f.label :image %>
-			<%= f.file_field :image %>
+			<div class="field">
+				<%= f.label :image %>
+				<%= f.file_field :image %>
+			</div>
+
+			<div class="field">
+				<%= f.label :name %>
+				<%= f.text_field :name, :placeholder => "Milestones " %>
+			</div>
+
+			<div class="field">
+	    	<%= f.label :street, 'Street' %>
+	    	<%= f.text_field :street %>
+			</div>
+
+			<div class="field">
+				 <%= f.label :city, 'City' %>
+	    	<%= f.text_field :city %>
+			</div>
+
+			<div class="field">
+			 	<%= f.label :prov, 'Province' %>
+	    	<%= f.text_field :prov %>
+			</div>
+
+			<div class="field">
+			 	<%= f.label :postal, 'Postal Code' %>
+	    	<%= f.text_field :postal %>
+			</div>
+
+			<div class="field">
+		    <%= f.label "Cuisine" %>
+		    <%= f.select :cuisine_type, [['Thai'],['Italian'],['Seafood'],['Indian'],['Canadian'],['Tex-Mex'],['Japanese'], ['Greek']], :prompt => "Please Choose..." %> <br />
+			</div>
+
+			<div class="field">
+				<%= f.label "Description" %>
+			  <%= f.text_area :description %>
+			</div>
+
+			<div class="field">
+				<%= f.label :website %>
+				<%= f.url_field :website, :value => "http://" %>
+			</div>
+
+			<div class="actions">
+				<%= f.submit "Submit",  id:'new_rest_submit_btn'  %>
+			</div>
 		</div>
 
-		<div class="field">
-			<%= f.label :name %>
-			<%= f.text_field :name, :placeholder => "Milestones " %>
-		</div>
+	<% end %>
+		<div id="error_msgs_padding">
+		  <% if @restaurant.errors.any? %>
 
-		<div class="field">
-    	<%= f.label :street, 'Street' %>
-    	<%= f.text_field :street %>
-		</div>
+		  <div class="error_messages">
+		    <ul>
+		    <% @restaurant.errors.full_messages.each do |msg| %>
+		      <li><%= msg %></li>
+		    <% end %>
+		    </ul>
+			</div>
+		  <% end %>
+		 </div>
 
-		<div class="field">
-			 <%= f.label :city, 'City' %>
-    	<%= f.text_field :city %>
-		</div>
-
-		<div class="field">
-		 	<%= f.label :prov, 'Province' %>
-    	<%= f.text_field :prov %>
-		</div>
-
-		<div class="field">
-		 	<%= f.label :postal, 'Postal Code' %>
-    	<%= f.text_field :postal %>
-		</div>
-
-		<div class="field">
-	    <%= f.label "Cuisine" %>
-	    <%= f.select :cuisine_type, [['Thai'],['Italian'],['Seafood'],['Indian'],['Canadian'],['Tex-Mex'],['Japanese'], ['Greek']] %> <br />
-		</div>
-
-		<div class="field">
-			<%= f.label "Description" %>
-		  <%= f.text_area :description %>
-		</div>
-
-		<div class="field">
-			<%= f.label :website %>
-			<%= f.url_field :website, :value => "http://" %>
-		</div>
-
-		<div class="actions">
-			<%= f.submit "Submit",  id:'new_rest_submit_btn'  %>
-		</div>
-	</div>
-
-<% end %>
-
-    <div id="new_resturant_errors">
-
-    <% if @restaurant.errors.any? %>
-    <hr/>
-    <div class="starter-template">
-    <div id="error_explanation">
-      <h4><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h4>
-      <ul>
-      <% @restaurant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-
-    <% end %>
-</div>
 </div>
 
 
