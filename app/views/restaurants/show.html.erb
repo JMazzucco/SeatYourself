@@ -38,31 +38,43 @@
 <div id="content-bg">
 	<div class="tile" id="reso_booking">
 		 	<h2>Book a Reservation</h2>
-		  <%= form_for([@restaurant, @reservation]) do |f| %>
-					<p><%= f.label :time, "Date" %></p>
-					<%= f.date_select :time,
+ 			<%= form_tag restaurant_reservations_path(@restaurant) do %>
+
+			<%= label_tag(:time, "Date and Time") %>
+			<p>
+			<%= datetime_select(:reso, "datetime",  default: 3.days.from_now,
+		        :minute_step => 15, ampm: true,
+				    :discard_year => true) %><p>
+			<p><%= label_tag :party_size, "Party Size"%></p>
+			<p><%= text_field_tag :party_size %></p>
+
+  		<%= submit_tag 'Book Reservation', id:'reso_submit_btn' %>
+			<% end %>
+
+		  <%#= form_for([@restaurant, @reservation]) do |f| %>
+					<p><%#= f.label :time, "Date" %></p>
+					<%#= f.date_select :time,
 				 		:default => 24.hours.from_now,
 		        :minute_step => 15,
 				    :discard_year => true
 				   %>
 				  <p>
-				  <p><%= f.label :time, "Time" %></p>
-				  <%= f.time_select :time,
+				  <p><%#= f.label :time, "Time" %></p>
+				  <%#= f.time_select :time,
 				 		:default => 24.hours.from_now,
 		        :minute_step => 15,
 				    :discard_year => true
 				  %>
 				  </p>
 
-					<p><%= f.label :party_size, "Party Size"%></p>
-					<p><%= f.text_field :party_size %></p>
-					<%= f.submit 'Book Reservation', id:'reso_submit_btn' %>
-			<% end %>
+					<p><%#= f.label :party_size, "Party Size"%></p>
+					<p><%#= f.text_field :party_size %></p>
+					<%#= f.submit 'Book Reservation', id:'reso_submit_btn' %>
+			<%# end %>
 	</div>
+	<% resos = current_user.reservations.where(restaurant_id: @restaurant.id) %>
+	<% if current_user && resos.count > 0 %>
 
-
-
-	<% if current_user && current_user.reservations.count > 0 %>
 		<div class="tile" id="booked_reservations">
 		<h2 id="resos_title">Your Reservations</h2>
 			<ul>
@@ -72,12 +84,12 @@
 				<li>
 					<div class="num_list_icon"><span><%= counter %></span></div>
 					<div id="reservation">
+
 					<%=
 					time = Time.at(reso.time)
 					time.strftime("%b %e, %l:%M %p")
 					%> for <%= reso.party_size %> people
 				</li>
-
 
 				<%= link_to 'Cancel', restaurant_reservation_path(restaurant_id: reso.restaurant_id, id: reso.id),  method: :delete, data: { confirm: 'Are you sure?' }, id:"cancel_reso_link" %>
 				<% counter += 1%>
@@ -123,7 +135,6 @@
 				<span id="rating_count">0 reviews</span>
 	  <% end %>
 		</div>
-
 
 		<% if @restaurant.reviews.count > 0 %>
 		<hr>
