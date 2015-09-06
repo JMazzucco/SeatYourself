@@ -1,0 +1,1646 @@
+/* line 5, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+.location-error {
+  display: none;
+}
+
+/* line 9, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+#map-canvas {
+  height: 100vw;
+  max-height: 400px;
+  max-width: 630px;
+  border-radius: 0 0 5px 5px;
+}
+
+/* line 19, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+.menu-btn div {
+  position: absolute;
+  left: 100%;
+  top: 64%;
+  padding-right: 8px;
+  margin-top: -0.50em;
+  line-height: 1.2;
+  font-size: 18px;
+  font-weight: 200;
+  vertical-align: middle;
+  z-index: 99;
+}
+/* line 32, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+.menu-btn span {
+  display: block;
+  width: 19px;
+  height: 3px;
+  margin: 4px 0;
+  background: black;
+  z-index: 99;
+}
+
+/* line 42, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+.responsive-menu {
+  display: none;
+}
+
+/* line 46, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+.expand {
+  display: block !important;
+}
+
+@media (min-width: 650px) {
+  /* line 51, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/locations.scss */
+  #map-canvas {
+    border-radius: 0;
+    margin-bottom: 5%;
+    border: 2px grey solid;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+/* line 1, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav {
+  position: fixed;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #4C4A5C;
+  border-bottom: 2px solid #D6D6D6;
+}
+/* line 11, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #title {
+  display: inline-block;
+  margin-left: 5px;
+  right: 4px;
+  letter-spacing: 3px;
+  line-height: 25px;
+  font: 25px sans-serif;
+}
+/* line 20, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #title a:link, nav #title a:hover, nav #title a:active, nav #title a:visited {
+  text-decoration: none;
+  color: #FFF;
+}
+/* line 29, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  float: right;
+  background: #eee;
+  border-bottom: 1px solid #fff;
+  border-radius: 0 0 0 3px;
+}
+/* line 40, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav li {
+  float: left;
+}
+/* line 43, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav li #login-content {
+  right: 0;
+  width: 100vw;
+  margin-left: 2%;
+  padding-right: 0px;
+}
+/* line 51, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login {
+  border-right: 1px solid #ddd;
+  box-shadow: 1px 0 0 #fff;
+}
+/* line 56, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login-trigger, nav #signup a, nav #logout a {
+  font-size: 0.7em;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  height: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+}
+/* line 70, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login-trigger {
+  border-radius: 3px 0 0 3px;
+}
+/* line 74, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #signup a, nav #logout a {
+  border-radius: 0 3px 3px 0;
+}
+/* line 78, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login-trigger:hover, nav #login .active, nav #signup a:hover, nav #logout a:hover {
+  background: #fff;
+}
+/* line 82, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login-content {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  background-image: linear-gradient(top, #fff, #eee);
+  padding: 5%;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.9);
+  border-radius: 0;
+}
+/* line 96, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #inputs input {
+  background: #f1f1f1;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 238px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #ccc inset;
+}
+/* line 106, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #inputs:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
+}
+/* line 113, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #inputs #password {
+  display: block;
+}
+/* line 119, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login #actions {
+  margin: 10px 2px;
+}
+/* line 123, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login label {
+  margin-left: 35px;
+  line-height: 30px;
+}
+/* line 128, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login label input {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+/* line 134, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login #submit {
+  background-color: #d14545;
+  background-image: linear-gradient(top, #e97171, #d14545);
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  border: 1px solid #7e1515;
+  float: left;
+  height: 30px;
+  padding: 0;
+  width: 100px;
+  cursor: pointer;
+  font: bold 14px Arial, Helvetica;
+  color: #fff;
+}
+/* line 151, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login #submit:hover, nav #login #submit:focus {
+  background-color: #e97171;
+  background-image: linear-gradient(top, #d14545, #e97171);
+}
+/* line 156, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login #submit:active {
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+/* line 161, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+nav #login #submit::-moz-focus-inner {
+  border: none;
+}
+
+/* line 168, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+#notices_alerts {
+  padding: 3px;
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  padding-top: 35px;
+  background-color: #D6D6D6;
+}
+/* line 176, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+#notices_alerts #notice {
+  color: #00A700;
+}
+/* line 180, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+#notices_alerts #alert {
+  color: #D43A3A;
+}
+
+@media (min-width: 650px) {
+  /* line 186, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+  nav {
+    height: 60px;
+    border-bottom: 5px solid #D6D6D6;
+  }
+  /* line 190, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+  nav #title {
+    font: 33px sans-serif;
+    margin: 11px;
+    margin-left: 30px;
+  }
+
+  /* line 197, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+  nav #login-trigger, nav #signup a, nav #logout a {
+    zoom: 1.5;
+  }
+
+  /* line 201, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+  nav li #login-content {
+    right: 0;
+    width: 350px;
+    margin-left: 2%;
+    padding-right: 0px;
+    margin-top: 35px;
+    border-radius: 0 0 0 10px;
+  }
+
+  /* line 210, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/navbar.scss */
+  #notices_alerts {
+    padding-top: 65px;
+  }
+}
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+/* line 8, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+body {
+  font: 100% Helvetica, san-serif;
+  color: #333;
+  background-color: #EEE;
+}
+
+/* line 14, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.rating > span {
+  position: relative;
+  width: 1.1em;
+}
+
+/* line 19, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.filled-star {
+  color: red;
+  font-size: 1.2em;
+}
+
+/* line 24, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.empty-star {
+  color: #E4E4E4;
+  font-size: 1.2em;
+}
+
+/* line 29, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.filled-star {
+  color: red;
+}
+
+/* line 33, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#content-bg {
+  background-image: url("white_carbon/white_carbon.png");
+}
+
+/* line 37, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#img-container {
+  background: #092756;
+  background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  overflow: hidden;
+  height: 250px;
+  z-index: 0;
+  margin: auto;
+  text-align: center;
+}
+
+/* line 50, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#or-icon {
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding-right: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  line-height: 28px;
+  margin: auto;
+  font-style: italic;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* line 65, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#current-location, #new_review_btn, #reso_submit_btn, #new_rest_submit_btn, #new_user_submit_btn, #new_review_submit_btn, #new_rest_link, #cancel_reso_link {
+  zoom: 60%;
+  color: #FFF;
+  background-color: #D83C3C;
+  font: bold 20px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border-radius: 5px;
+  margin-top: 23px;
+  padding: 3px 20px;
+}
+/* line 74, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#current-location:hover, #new_review_btn:hover, #reso_submit_btn:hover, #new_rest_submit_btn:hover, #new_user_submit_btn:hover, #new_review_submit_btn:hover, #new_rest_link:hover, #cancel_reso_link:hover {
+  background: #e54040;
+}
+
+/* line 79, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#cancel_reso_link {
+  margin-left: 300px;
+  text-decoration: none;
+}
+
+/* line 84, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_rest_link {
+  padding: 10px;
+  text-decoration: none;
+}
+
+/* line 89, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_rest_link_container {
+  padding: 0 0 20px 10px;
+}
+
+/* line 93, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#results-header {
+  background-color: #FFF;
+  height: 26px;
+  border: 1px solid #929492;
+  border-top: none;
+  margin: 0 10px;
+  border-radius: 0 0 5px 5px;
+}
+/* line 102, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#results-header h2 {
+  font-family: 120% Helvetica, san-serif;
+  padding-top: 5px;
+  padding-left: 5px;
+  margin: 0;
+  color: #6B6969;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+/* line 115, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#rating_count {
+  font-size: 13px !important;
+  line-height: 19px !important;
+  font-family: Arial,sans-serif;
+  color: #0066c0;
+}
+
+/* line 122, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#search-container {
+  width: 100%;
+  margin: auto;
+  border-radius: 5px;
+}
+/* line 127, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#search-container div, #search-container h4 {
+  text-align: center;
+}
+/* line 131, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#search-container h4 {
+  color: white;
+  font-size: 2em;
+}
+
+/* line 137, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#restaurants {
+  background-color: #FFF;
+  margin: 0 10px;
+}
+
+/* line 145, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant {
+  border: 1px solid #929492;
+  background-color: #FFF;
+  padding: 3px;
+  margin: 10px;
+  border-radius: 5px;
+}
+/* line 151, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #thumb {
+  display: inline-block;
+  padding-top: 4px;
+  padding-left: 3px;
+}
+/* line 156, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #thumb a:hover {
+  opacity: 0.8;
+}
+/* line 159, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #thumb img {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+/* line 167, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #restaurant-deets {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 150%;
+  padding-top: 13px;
+  padding-left: 3px;
+}
+/* line 173, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #restaurant-deets * {
+  margin: 0;
+}
+/* line 177, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #restaurant-deets #cusine_city {
+  color: #6B6969;
+  font-size: 0.8em;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+/* line 185, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #name {
+  margin: 3px 0;
+  vertical-align: top;
+  display: inline-block;
+}
+/* line 191, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #name a:visited, .restaurant #name a:link {
+  text-decoration: none;
+  color: #000;
+}
+/* line 196, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.restaurant #name a:hover {
+  color: #6B6B6B;
+}
+
+/* line 203, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_review_btn {
+  text-decoration: none;
+  padding: 12px 18px;
+}
+
+/* line 210, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+cf:before, .cf:after {
+  content: "";
+  display: table;
+}
+
+/* line 215, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.cf:after {
+  clear: both;
+}
+
+/* line 219, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.cf {
+  zoom: 1;
+}
+
+/*-------------------------------------*/
+/* line 225, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper {
+  zoom: 70%;
+  z-index: 100;
+  width: 450px;
+  margin: 120px auto 27px auto;
+  background: #444;
+}
+
+/* line 233, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper input {
+  width: 330px;
+  height: 20px;
+  padding: 10px 5px;
+  float: left;
+  font: bold 20px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border: 0;
+  background: #eee;
+  -moz-border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* line 246, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper input:focus {
+  outline: 0;
+  background: #fff;
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.8) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.8) inset;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.8) inset;
+}
+
+/* line 254, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper input::-webkit-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* line 260, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper input:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* line 266, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper input:-ms-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* line 272, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button {
+  overflow: visible;
+  position: relative;
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 110px;
+  font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  color: #fff;
+  text-transform: uppercase;
+  background: #d83c3c;
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* line 291, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button:hover {
+  background: #e54040;
+}
+
+/* line 295, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button:active,
+.form-wrapper button:focus {
+  background: #c42f2f;
+}
+
+/* line 300, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button:before {
+  content: '';
+  position: absolute;
+  border-width: 8px 8px 8px 0;
+  border-style: solid solid solid none;
+  border-color: transparent #d83c3c transparent;
+  top: 12px;
+  left: -6px;
+}
+
+/* line 310, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button:hover:before {
+  border-right-color: #e54040;
+}
+
+/* line 314, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button:focus:before {
+  border-right-color: #c42f2f;
+}
+
+/* line 318, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 327, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_deets {
+  margin-top: 35px;
+  height: 300px;
+  background-color: grey;
+  padding: 15px;
+  background: #092756;
+  background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+  background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, 0.4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, 0.25) 0%, rgba(42, 60, 87, 0.4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+}
+/* line 338, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_deets img {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #D6D6D6;
+}
+/* line 344, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_deets #full_img {
+  border-radius: 5px;
+  margin-top: 20px;
+}
+/* line 349, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_deets h1, #show_deets p, #show_deets a {
+  color: #FFF;
+  text-decoration: none;
+}
+/* line 354, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_deets h1 {
+  margin: 0;
+}
+
+/* line 359, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#booked_reservations {
+  padding: 15px;
+  padding-top: 0;
+}
+/* line 364, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#booked_reservations h2 {
+  padding-left: 10px;
+}
+/* line 368, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#booked_reservations ul {
+  padding-left: 3%;
+}
+/* line 372, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#booked_reservations li {
+  list-style: none;
+}
+
+/* line 377, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.num_list_icon {
+  display: inline-block;
+  text-align: center;
+  color: #FFF;
+  background-color: #d83c3c;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  line-height: 27px;
+  margin: auto;
+  margin-right: 5px;
+  border: 1px solid #555;
+}
+/* line 390, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.num_list_icon span {
+  text-shadow: 0px 2px 2px #555;
+}
+
+/* line 396, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#reservation {
+  display: inline-block;
+}
+
+/* line 402, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#deets-review {
+  display: none;
+}
+
+/* line 406, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.tile {
+  border: 1px solid #929492;
+  background-color: #FFF;
+  padding: 25px;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 5px;
+}
+
+/* line 415, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#reso_booking {
+  border: 1px solid #929492;
+  border-top: none;
+  background-color: #FFF;
+  padding: 25px;
+  margin: 10px;
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
+}
+/* line 424, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#reso_booking form {
+  max-width: 400px;
+  padding: 15px 25px 15px 15px;
+  padding-left: 3%;
+  background-color: #EFEFEF;
+}
+
+/* line 432, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_about {
+  padding: 0;
+}
+/* line 434, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_about h2, #show_about h4, #show_about p {
+  padding: 0 25px;
+}
+
+/* line 439, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#gmap {
+  max-height: 400px;
+  max-width: 630px;
+}
+/* line 442, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#gmap img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: -4px;
+  border-radius: 0 0 5px 5px;
+}
+
+/* line 451, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_ratings .rating {
+  margin-bottom: 20px;
+  margin-left: 25px;
+}
+/* line 456, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_ratings #single_review {
+  padding: 15px 25px;
+}
+/* line 459, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_ratings #single_review #datetime_posted {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #BBB;
+}
+
+/* line 467, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#reso_submit_btn {
+  margin-top: 40px;
+}
+
+/* line 471, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_nearbys {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 475, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#show_nearbys h2 {
+  margin-left: 25px;
+}
+
+/* line 480, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#nearby_restaurant {
+  list-style-type: none;
+  padding: 5px 0;
+}
+/* line 484, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#nearby_restaurant a {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+/* line 490, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#nearby_restaurant a:hover {
+  color: #6B6B6B;
+}
+/* line 494, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#nearby_restaurant span {
+  color: #0167C0;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+/* line 501, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_restaurant_container, #new_user_container, #new_review {
+  margin: 55px 20px;
+  background-color: #FFF;
+  padding: 20px 0;
+}
+/* line 506, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_restaurant_container h2, #new_user_container h2, #new_review h2 {
+  text-align: center;
+}
+
+/* line 511, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_restaurant_container label, #new_review_container label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block;
+}
+
+/* line 519, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.field {
+  margin: 15px 0;
+}
+
+/* line 523, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.actions {
+  padding-left: 20px;
+}
+
+/* line 527, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_restaurant_form {
+  margin: inherit;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+/* line 531, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_restaurant_form #new_restaurant_btm_hr {
+  clear: both;
+}
+
+/* line 536, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.new_restaurant, #new_user_container {
+  padding-top: 15px;
+}
+/* line 538, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.new_restaurant #restaurant_image, #new_user_container #restaurant_image {
+  width: 195px;
+}
+
+/* line 543, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_user_container, #new_review_container {
+  padding: 20px;
+}
+/* line 546, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_user_container label, #new_review_container label {
+  width: 6em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block;
+}
+/* line 554, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_user_container select, #new_review_container select {
+  width: 184px;
+}
+
+/* line 559, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.error_messages {
+  margin-top: 25px;
+  border: 2px solid #D83C3C;
+  border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+/* line 565, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.error_messages ul {
+  list-style: none;
+}
+
+/* line 570, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#error_msgs_padding {
+  margin: 5%;
+}
+
+/* line 574, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_restaurant_errors {
+  position: relative;
+  padding-top: 20px;
+  margin: 0 20px;
+}
+
+/* line 581, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_review_form {
+  margin-top: 40px;
+}
+
+/* line 585, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+.form-wrapper {
+  zoom: 65%;
+}
+
+/* line 589, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#thumb * {
+  display: none;
+}
+
+/* line 594, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+#new_reservation p {
+  padding-top: 2px;
+  font-weight: bold;
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 650px) {
+  /* line 602, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  .form-wrapper {
+    zoom: 80%;
+  }
+
+  /* line 606, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #thumb * {
+    display: block;
+  }
+
+  /* line 610, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #img-container {
+    height: 300px;
+  }
+
+  /* line 615, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #results-header h2 {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 650px) {
+  /* line 626, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #deets-review {
+    display: inline-block;
+    float: right;
+    width: 35%;
+    height: 20px;
+    margin: 25px 7% 20px 20px;
+    margin-right: 7%;
+  }
+  /* line 636, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #deets-review p {
+    font-style: italic;
+    text-align: left;
+    margin: 5px;
+  }
+  /* line 643, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #deets-review p:nth-child(2) {
+    color: grey;
+    font-size: 0.8em;
+    font-style: normal;
+    padding-right: 3px;
+  }
+
+  /* line 654, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  .form-wrapper {
+    zoom: 80%;
+  }
+
+  /* line 658, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #thumb * {
+    display: block;
+  }
+
+  /* line 662, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #img-container {
+    height: 300px;
+  }
+
+  /* line 667, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #results-header h2 {
+    font-size: 1rem;
+  }
+
+  /* line 672, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  .form-wrapper {
+    margin-top: 180px;
+  }
+
+  /* line 676, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #img-container {
+    height: 360px;
+  }
+
+  /* line 680, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #current-location {
+    zoom: 75%;
+  }
+
+  /* line 684, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_deets {
+    padding: 35px;
+    height: 210px;
+    margin-top: 0px;
+    padding-top: 120px;
+  }
+  /* line 690, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_deets h1 {
+    font-size: 2.5em;
+  }
+
+  /* line 695, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #res_header_details {
+    display: inline-block;
+    vertical-align: top;
+    margin: 30px;
+  }
+
+  /* line 701, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #res_header_img {
+    display: inline-block;
+  }
+
+  /* line 705, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #nearbys_text {
+    max-height: 400px;
+    max-width: 685px;
+    margin: 40px 0;
+  }
+
+  /* line 711, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #gmap {
+    border-radius: 0;
+    margin-bottom: 5%;
+    border: 2px grey solid;
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  /* line 719, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #new_restaurant_container, #new_user_container, #new_review {
+    width: 80%;
+    margin: 100px auto;
+  }
+  /* line 720, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #new_restaurant_container h2, #new_restaurant_container h1, #new_user_container h2, #new_user_container h1, #new_review h2, #new_review h1 {
+    text-align: left;
+    padding: 0 5%;
+  }
+
+  /* line 728, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #new_restaurant_container {
+    margin-top: 0px;
+    padding-top: 100px;
+    background-color: #EEE;
+  }
+
+  /* line 734, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #new_restaurant_form_pad {
+    background-color: #FFF;
+    padding: 20px 0;
+  }
+
+  /* line 739, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #new_restaurant_form, #new_user, #new_review_form {
+    margin-left: 5%;
+  }
+
+  /* line 743, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  hr {
+    border: 0;
+    height: 1px;
+    width: 80%;
+    float: left;
+    background-image: linear-gradient(to right, #d8d5d5, #d8d5d5, transparent);
+  }
+}
+@media (min-width: 920px) {
+  /* line 755, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #deets-review {
+    margin-right: 7%;
+    margin-top: 36px;
+    margin-left: 66px;
+    padding-left: 7px;
+    vertical-align: top;
+    margin-right: 0;
+  }
+
+  /* line 764, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  .restaurant, #show_about, #show_ratings, #show_nearbys {
+    border: 0;
+    border-bottom: 1px solid #D8D5D5;
+    padding: 25px 50px;
+    margin: 10px;
+    margin-left: 3%;
+    width: 65%;
+    border-radius: 0;
+    margin: auto;
+  }
+
+  /* line 775, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_ratings hr {
+    border: 0;
+    height: 1px;
+    width: 80%;
+    float: left;
+    background-image: linear-gradient(to right, #d8d5d5, #d8d5d5, transparent);
+  }
+
+  /* line 783, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  .restaurant #thumb {
+    display: inline-block;
+    padding-top: 4px;
+    padding-left: 33px;
+  }
+
+  /* line 789, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #content-bg {
+    background-image: none;
+    background-color: white;
+  }
+
+  /* line 794, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #results-header {
+    margin-left: 36px;
+    padding: 20px 0;
+    border: 0;
+    border-bottom: 1px solid #8A8A8A;
+    width: 73%;
+    margin: auto;
+    border-radius: 0;
+  }
+  /* line 803, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #results-header h2 {
+    font-size: 1.3em;
+  }
+
+  /* line 808, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #new_rest_link_container {
+    text-align: center;
+    padding: 20px 0 60px;
+  }
+
+  /* line 815, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #reso_booking, #booked_reservations {
+    width: 36%;
+    display: inline-block;
+    border: 0;
+    border-radius: 0;
+    display: center;
+  }
+
+  /* line 823, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #reso_booking {
+    padding-left: 0;
+    margin-left: 15%;
+  }
+
+  /* line 828, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #reso_booking {
+    float: left;
+  }
+  /* line 830, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #reso_booking form {
+    margin-left: 20px;
+  }
+
+  /* line 836, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #booked_reservations ul {
+    margin-top: 0px;
+  }
+  /* line 839, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #booked_reservations p {
+    padding-left: 10px;
+  }
+
+  /* line 844, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_about {
+    clear: both;
+    border-top: 1px solid #D8D5D5;
+  }
+  /* line 847, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_about h2 {
+    padding-left: 0;
+  }
+
+  /* line 852, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #resos_title {
+    padding-top: 45px;
+    margin-top: 0;
+  }
+
+  /* line 858, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_nearbys, #show_about, #show_ratings {
+    padding-right: 0;
+  }
+
+  /* line 862, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_nearbys h2 {
+    margin-left: 25px;
+  }
+
+  /* line 866, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #show_nearbys h2 {
+    margin-left: 0;
+  }
+
+  /* line 871, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #nearbys_text ul {
+    padding-left: 25px;
+  }
+
+  /* line 875, /Users/John/Documents/Web Dev/Bitmaker/Assignments/w4/SeatYourself/seatyourself/app/assets/stylesheets/restaurants.scss */
+  #map-canvas {
+    margin-left: 25px;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
