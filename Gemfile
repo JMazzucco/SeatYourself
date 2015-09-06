@@ -32,6 +32,7 @@ gem 'figaro'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails_12factor'
+gem 'pry-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -42,7 +43,6 @@ gem 'rails_12factor'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'better_errors'
-	gem 'pry-rails'
   gem 'byebug'
 	gem 'quiet_assets'
   gem 'factory_girl_rails'

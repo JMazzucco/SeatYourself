@@ -4,12 +4,17 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
 
-
+    #An array of hours open
+    # @hours_open = (11..23).to_a
+    # #iterate through each hour and only keep it if the sum of the party size of the selected hour is under 100
+    # unless @restaurant.reservations.size <= 1
+    #   @hours_open.keep_if do |timeslot|
+    #     @restaurant.reservations.where(time: timeslot).sum("party_size") < 100 || @restaurant.reservations.where(time: timeslot).sum("party_size") == nil
+    #   end
+    # end
   end
 
   def create
-
-
     date_params = []
     5.times do |i|
       i += 1
@@ -22,7 +27,6 @@ class ReservationsController < ApplicationController
     if (submitted_time > Time.now) && (submitted_time < Time.at(2678400 + Time.now.to_i))
       @seats_booked = @restaurant.reservations.where(time: submitted_time).sum("party_size")
       submitted_party_size = (params[:party_size]).to_i
-
       @reservation = @restaurant.reservations.build(party_size: params["party_size"], time: submitted_time)
       @reservation.user = current_user
       if (@seats_booked + submitted_party_size) > 100
@@ -30,9 +34,7 @@ class ReservationsController < ApplicationController
         flash[:alert] = "#{seats_available} seats are available for this time"
         redirect_to restaurant_path(@restaurant)
       else
-
         if @reservation.save
-
           redirect_to restaurant_path(@restaurant), notice: 'Reservation is booked!'
         else
           redirect_to restaurant_path(@restaurant)
@@ -45,7 +47,7 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservationS = current_user.reservations.where(restaurant_id: @restaurant.id)
+    #@reservations = current_user.reservations.where(restaurant_id: @restaurant.id)
   end
 
   def destroy

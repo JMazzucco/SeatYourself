@@ -1,3 +1,5 @@
+
+
 <div id="show_deets">
 	<div id="res_header_img">
 		<%= image_tag @restaurant.image.url(:medium) %>
@@ -5,7 +7,6 @@
 
 	<div id="res_header_details">
 		<h1><%= @restaurant.name %></h1>
-
 		<div class="rating">
 			<% if @restaurant.reviews.count > 0 %>
 		    <% sum = @restaurant.reviews.sum(:rating) %>
@@ -72,8 +73,8 @@
 					<%#= f.submit 'Book Reservation', id:'reso_submit_btn' %>
 			<%# end %>
 	</div>
-	<% resos = current_user.reservations.where(restaurant_id: @restaurant.id) %>
-	<% if current_user && resos.count > 0 %>
+
+	<% if current_user && !@reservations.nil? && @reservations.count > 0 %>
 
 		<div class="tile" id="booked_reservations">
 		<h2 id="resos_title">Your Reservations</h2>
@@ -88,7 +89,7 @@
 					<%=
 					time = Time.at(reso.time)
 					time.strftime("%b %e, %l:%M %p")
-					%> for <%= reso.party_size %> people
+					%> for <%= pluralize(reso.party_size, "Person") %>
 				</li>
 
 				<%= link_to 'Cancel', restaurant_reservation_path(restaurant_id: reso.restaurant_id, id: reso.id),  method: :delete, data: { confirm: 'Are you sure?' }, id:"cancel_reso_link" %>
