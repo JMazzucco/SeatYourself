@@ -28,10 +28,12 @@
 
 		<p><a href="<%= @restaurant.website %>"><%= @restaurant.website.partition('.').last %></a></p>
 
+		<span>
 		<% if current_user && current_user.id == @restaurant.owner %>
-			<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
-			<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete %>
+			<%= link_to "Edit", edit_restaurant_path(@restaurant.id), class: "owner_option" %>
+			<%= link_to "Delete", restaurant_path(@restaurant.id), :method => :delete, class: "owner_option" %>
 		<% end %>
+		</span>
 	</div>
 </div>
 

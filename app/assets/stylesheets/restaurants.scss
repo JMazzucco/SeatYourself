@@ -63,10 +63,11 @@ body {
 }
 
 #current-location, #new_review_btn, #reso_submit_btn, #new_rest_submit_btn, #new_user_submit_btn, #new_review_submit_btn, #new_rest_link,#cancel_reso_link {
-  zoom: 60%;
+  zoom: 76%;
   color: #FFF;
   background-color: #D83C3C;
-  font:bold 20px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  font: bold 18px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   margin-top: 23px;
   padding: 3px 20px;
@@ -75,6 +76,9 @@ body {
     background: #e54040;
   }
 }
+
+
+
 
 #cancel_reso_link {
   margin-left: 300px;
@@ -278,9 +282,8 @@ cf:before, .cf:after{
         cursor: pointer;
         height: 40px;
         width: 110px;
-        font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        font: bold 18px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
         color: #fff;
-        text-transform: uppercase;
         background: #d83c3c;
         -moz-border-radius: 0 3px 3px 0;
         -webkit-border-radius: 0 3px 3px 0;
@@ -361,7 +364,8 @@ cf:before, .cf:after{
   padding: 15px;
   padding-top: 0;
 
-  h2 {
+
+  h2, p {
     padding-left: 10px;
   }
 
@@ -387,9 +391,9 @@ cf:before, .cf:after{
     margin-right: 5px;
     border: 1px solid #555;
 
-    span{
-      text-shadow: 0px 2px 2px #555;
-    }
+    // span{
+    //   text-shadow: 0px 2px 2px #555;
+    // }
 
 }
 
@@ -597,6 +601,28 @@ cf:before, .cf:after{
   }
 }
 
+#res_header_details{
+  .owner_option{
+    color: tomato;
+
+    &:hover {
+      color: #FFA99A;
+    }
+  }
+}
+
+@media (max-width: 649px) {
+
+#res_header_details{
+  font-size: 0.85rem;
+
+
+  p{
+    margin: 10px 0;
+  }
+}
+}
+
 @media only screen and (min-device-width: 375px) and (max-device-width: 650px) {
 
 .form-wrapper {
@@ -615,11 +641,8 @@ cf:before, .cf:after{
   h2{
     font-size: 1rem;
   }
-
 }
-
 }
-
 
 @media (min-width: 650px) {
 
@@ -679,6 +702,7 @@ cf:before, .cf:after{
 
 #current-location {
   zoom: 75%;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.9);
   }
 
 #show_deets {
@@ -693,6 +717,7 @@ cf:before, .cf:after{
 }
 
 #res_header_details{
+  font-size: 1rem;
   display: inline-block;
   vertical-align: top;
   margin: 30px;
