@@ -21,10 +21,12 @@ class RestaurantsController < ApplicationController
   def show
     #the record of the current restaurant
     @restaurant = Restaurant.find(params[:id])
-    @reservation = @restaurant.reservations.build
-    @reservations = current_user.reservations.where(restaurant_id: @restaurant.id)
     @nearby_restaurants = @restaurant.nearbys(10, units: :km)
 
+    if current_user
+      @reservation = @restaurant.reservations.build
+      @reservations = current_user.reservations.where(restaurant_id: @restaurant.id)
+    end
 
   end
 
