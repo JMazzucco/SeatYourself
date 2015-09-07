@@ -1,4 +1,3 @@
-
 	<div id="new_restaurant_form">
 	<hr/>
 	<%= form_for(@restaurant) do |f| %>
@@ -12,7 +11,7 @@
 
 			<div class="field">
 				<%= f.label :name %>
-				<%= f.text_field :name, :placeholder => "Milestones " %>
+				<%= f.text_field :name %>
 			</div>
 
 			<div class="field">
@@ -47,7 +46,7 @@
 
 			<div class="field">
 				<%= f.label :website %>
-				<%= f.url_field :website, :value => "http://" %>
+				<%= f.text_field :website, :placeholder => "http://www.moxies.com" %>
 			</div>
 
 			<div class="actions">
@@ -69,5 +68,3 @@
 		  <% end %>
 		 </div>
 </div>
-
-

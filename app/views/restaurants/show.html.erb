@@ -25,7 +25,8 @@
 		</div>
 
 		<p id="cusine_city"><%= @restaurant.cuisine_type.upcase %> &bull; <%= @restaurant.city.upcase %>
-		<p><a href="http://<%= @restaurant.website %>"><%= @restaurant.website %></a></p>
+
+		<p><a href="<%= @restaurant.website %>"><%= @restaurant.website.partition('.').last %></a></p>
 
 		<% if current_user && current_user.id == @restaurant.owner %>
 			<%= link_to "Edit", edit_restaurant_path(@restaurant.id) %>
