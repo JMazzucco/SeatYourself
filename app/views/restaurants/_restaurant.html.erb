@@ -33,7 +33,7 @@
 
   <div id="deets-review">
 	  <% if restaurant.reviews.count > 0  %>
-			<p>&ldquo;<%= truncate(restaurant.reviews.last.comment, length: 70) %>&rdquo;</p>
+			<p>&ldquo;<%= truncate(restaurant.reviews.last.comment, length: 55) %>&rdquo;</p>
 			<p><%= restaurant.reviews.last.created_at.strftime("%B  %d, %Y") %></p>
 		<% end %>
 	</div>
